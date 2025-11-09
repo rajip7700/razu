@@ -1,0 +1,85 @@
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background: url('https://wallpapers.com/images/hd/world-of-warcraft-wow-classic-dragon-hfg67dme7ca1lmli.jpg') no-repeat center center fixed;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.overlay {
+  background: rgba(0, 0, 0, 0.7);
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 0 20px rgba(0,0,0,0.6);
+}
+
+.form-box {
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+  color: #fff;
+}
+
+.form-box h1 {
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 24px;
+  color: #00ffff;
+}
+
+label {
+  margin-top: 10px;
+  font-weight: 600;
+}
+
+input {
+  padding: 10px;
+  margin-top: 4px;
+  border: none;
+  border-radius: 6px;
+  background: #1f1f1f;
+  color: #fff;
+  font-size: 14px;
+}
+
+/* RGB Button */
+.rgb-button {
+  margin-top: 20px;
+  padding: 12px;
+  font-size: 16px;
+  font-weight: bold;
+  border: none;
+  border-radius: 8px;
+  color: #fff;
+  background: linear-gradient(270deg, #ff0000, #00ff00, #0000ff);
+  background-size: 600% 600%;
+  animation: rgbGlow 6s ease infinite;
+  cursor: pointer;
+  box-shadow: 0 0 12px rgba(255,255,255,0.4);
+}
+
+@keyframes rgbGlow {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* eSewa Button */
+.esewa-button {
+  margin-top: 16px;
+  padding: 10px;
+  text-align: center;
+  background: #00a651;
+  color: #fff;
+  font-weight: bold;
+  text-decoration: none;
+  border-radius: 6px;
+  box-shadow: 0 0 10px #00ff99;
+  transition: transform 0.2s ease;
+}
+.esewa-button:hover {
+  transform: scale(1.05);
+}
