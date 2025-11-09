@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Tournament App</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="header">🏆 Tournament App</header>
+
+  <!-- Match cards -->
+  <section class="container" aria-label="Match list">
+    <article class="card">
+      <h2 class="card-title">Match 1</h2>
+      <div class="teams">
+        <div class="team">Team A</div>
+        <div class="team">Team B</div>
+      </div>
+      <div class="status">Scheduled: Nov 12, 2025</div>
+    </article>
+
+    <article class="card">
+      <h2 class="card-title">Match 2</h2>
+      <div class="teams">
+        <div class="team">Team C</div>
+        <div class="team">Team D</div>
+      </div>
+      <div class="status">Scheduled: Nov 13, 2025</div>
+    </article>
+
+    <article class="card">
+      <h2 class="card-title">Match 3</h2>
+      <div class="teams">
+        <div class="team">Team E</div>
+        <div class="team">Team F</div>
+      </div>
+      <div class="status">Scheduled: Nov 14, 2025</div>
+    </article>
+  </section>
+
+  <!-- Bracket view -->
+  <section class="bracket" aria-label="Bracket">
+    <div class="round">
+      <h3 class="round-title">Quarterfinals</h3>
+      <div class="match">
+        <span class="slot">Team A</span>
+        <span class="slot">Team B</span>
+      </div>
+      <div class="match">
+        <span class="slot">Team C</span>
+        <span class="slot">Team D</span>
+      </div>
+      <div class="match">
+        <span class="slot">Team E</span>
+        <span class="slot">Team F</span>
+      </div>
+      <div class="match">
+        <span class="slot">Team G</span>
+        <span class="slot">Team H</span>
+      </div>
+    </div>
+
+    <div class="round">
+      <h3 class="round-title">Semifinals</h3>
+      <div class="match">
+        <span class="slot">Winner QF1</span>
+        <span class="slot">Winner QF2</span>
+      </div>
+      <div class="match">
+        <span class="slot">Winner QF3</span>
+        <span class="slot">Winner QF4</span>
+      </div>
+    </div>
+
+    <div class="round">
+      <h3 class="round-title">Final</h3>
+      <div class="match">
+        <span class="slot">Winner SF1</span>
+        <span class="slot">Winner SF2</span>
+      </div>
+    </div>
+
+    <div class="round">
+      <h3 class="round-title">Champion</h3>
+      <div class="match">
+        <span class="slot champion">Champion</span>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <p>Made for your tournament — customize team names and schedule.</p>
+  </footer>
+</body>
+</html>
+
