@@ -2,41 +2,214 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Free Fire Tournament</title>
+  <title>Galaxy NGL — Grand Tournament</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <div class="overlay">
-    <form class="form-box">
-      <h1>🔥 Free Fire Tournament</h1>
+  <!-- Galaxy Background -->
+  <div class="galaxy-bg">
+    <div class="stars layer-1"></div>
+    <div class="stars layer-2"></div>
+    <div class="twinkle"></div>
+  </div>
 
-      <label for="ffname">Free Fire Name</label>
-      <input type="text" id="ffname" placeholder="Enter your Free Fire name" required />
-
-      <label for="uid">Free Fire UID</label>
-      <input type="text" id="uid" placeholder="Enter your UID" required />
-
-      <button type="button" class="esewa-button" id="showQR">Pay with eSewa</button>
-      <button type="submit" class="rgb-button">Register</button>
-    </form>
-
-    <!-- QR Popup -->
-    <div id="qr-popup" class="qr-popup hidden">
-      <div class="qr-content">
-        <h2>📱 Scan to Pay with eSewa</h2>
-        <img src="c:\Users\ASUS\Downloads\qrcode.jpg" alt="eSewa QR" class="qr-image" />
-        <label for="txid">Transaction ID</label>
-        <input type="text" id="txid" placeholder="Enter your eSewa Transaction ID" required />
-        <button id="closeQR" class="rgb-button">Done</button>
+  <!-- Top bar: left logo + right floating controls -->
+  <header class="topbar">
+    <div class="brand">
+      <img src="ngl-logo.png" alt="NGL logo" class="brand-logo" />
+      <div class="brand-text">
+        <strong>Nepal Gaming League</strong>
+        <span>Nepal • Free Fire tournaments</span>
       </div>
     </div>
+    <nav class="floating-nav">
+      <a href="#register" class="btn btn-primary" id="btnToRegister">Register</a>
+      <a href="#rules" class="btn btn-secondary" id="btnToRules">Rules</a>
+    </nav>
+  </header>
 
-    <!-- Success Popup -->
-    <div id="fullscreen-popup" class="fullscreen-popup hidden">
-      <div class="fullscreen-content">✅ Successfully Registered!</div>
+  <!-- Hero: grand tournament + giveaway -->
+  <section id="hero" class="section hero" aria-label="Grand prizes hero">
+    <div class="hero-wrap">
+      <h1 class="hero-title">
+        <span class="line">Grand Tournament</span>
+        <span class="line accent">Nepal’s most competitive Free Fire experience</span>
+      </h1>
+
+      <!-- Giveaway box -->
+      <div class="giveaway-box">
+        <div class="giveaway-title">GRAND GIVEAWAY</div>
+        <div class="giveaway-prize">
+          <span class="primary">iPhone 14 Pro Max</span>
+          <span class="plus">+ Rs 50,000</span>
+        </div>
+        <div class="eligibility">Only for Nepali players</div>
+      </div>
+
+      <!-- Stats (animated numbers for 3s, then settle) -->
+      <div class="stats">
+        <div class="stat-card glow">
+          <div class="stat-value rolling" data-target="500" id="statMaxSlots">0</div>
+          <div class="stat-label">Max slots</div>
+        </div>
+        <div class="stat-card glow">
+          <div class="stat-value rolling" data-target="247" id="statRegistered">0</div>
+          <div class="stat-label">Registered</div>
+        </div>
+        <div class="stat-card glow">
+          <div class="stat-value" id="countdown">48h</div>
+          <div class="stat-label">Time left</div>
+        </div>
+      </div>
+
+      <!-- Prize pool badge -->
+      <div class="prize-pool">
+        <div class="pool-title">Tournament Prize Pool</div>
+        <div class="pool-amount">Rs 10,000</div>
+      </div>
+
+      <!-- Register Now button + down arrow -->
+      <a href="#register" class="btn btn-primary btn-hero">⚡ Register Now</a>
+      <div class="scroll-down">
+        <span class="scroll-text">Scroll down to register</span>
+        <div class="arrow-down"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Register section -->
+  <section id="register" class="section register" aria-label="Register section">
+    <div class="wrap">
+      <h2 class="section-title">Register now</h2>
+      <p class="section-subtitle">Secure your slot with eSewa payment. Fair rules, pro vibes, zero excuses.</p>
+
+      <form id="registerForm" class="form-grid" autocomplete="off">
+        <div class="field">
+          <label for="ffname">Free Fire name</label>
+          <input type="text" id="ffname" placeholder="Enter your Free Fire name" required />
+        </div>
+        <div class="field">
+          <label for="uid">Free Fire UID</label>
+          <input type="text" id="uid" placeholder="Enter your UID (9–10 digits)" required />
+        </div>
+        <div class="field">
+          <label for="txid">eSewa transaction ID</label>
+          <input type="text" id="txid" placeholder="Enter your eSewa Transaction ID" required />
+        </div>
+
+        <div class="actions">
+          <button type="button" class="btn btn-secondary" id="showQR">Pay with eSewa</button>
+          <button type="submit" class="btn btn-primary">Submit registration</button>
+        </div>
+
+        <div class="tips">
+          <div class="tip">Include your Free Fire name in eSewa note</div>
+          <div class="tip">Make sure your UID is correct</div>
+          <div class="tip">Read the rules below before submitting</div>
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <!-- Rules section -->
+  <section id="rules" class="section rules" aria-label="Tournament rules">
+    <div class="wrap">
+      <h2 class="section-title">Tournament rules</h2>
+      <p class="section-subtitle">Follow these rules for fair and competitive gameplay.</p>
+
+      <div class="rules-grid">
+        <article class="rule-card" data-reveal="up">
+          <div class="rule-header">
+            <div class="rule-icon">🛡️</div>
+            <div class="rule-tag tag-red">Permanent ban</div>
+          </div>
+          <h3 class="rule-title">No hacking or cheating</h3>
+          <p class="rule-desc">Strictly prohibited — instant disqualification.</p>
+        </article>
+
+        <article class="rule-card" data-reveal="up" data-delay="100">
+          <div class="rule-header">
+            <div class="rule-icon">🚫</div>
+            <div class="rule-tag tag-orange">Match disqualification</div>
+          </div>
+          <h3 class="rule-title">No vehicle usage</h3>
+          <p class="rule-desc">Only on-foot gameplay allowed in all matches.</p>
+        </article>
+
+        <article class="rule-card" data-reveal="up" data-delay="200">
+          <div class="rule-header">
+            <div class="rule-icon">❌</div>
+            <div class="rule-tag tag-orange">Match disqualification</div>
+          </div>
+          <h3 class="rule-title">No teaming</h3>
+          <p class="rule-desc">Solo gameplay only — no coordination with other players.</p>
+        </article>
+
+        <article class="rule-card" data-reveal="up" data-delay="300">
+          <div class="rule-header">
+            <div class="rule-icon">📱</div>
+            <div class="rule-tag tag-yellow">Account review</div>
+          </div>
+          <h3 class="rule-title">Fair device policy</h3>
+          <p class="rule-desc">No emulators or external controllers allowed.</p>
+        </article>
+
+        <article class="rule-card" data-reveal="up" data-delay="400">
+          <div class="rule-header">
+            <div class="rule-icon">🤝</div>
+            <div class="rule-tag tag-blue">Warning/Suspension</div>
+          </div>
+          <h3 class="rule-title">Respectful communication</h3>
+          <p class="rule-desc">No abusive language, harassment, or toxic behavior.</p>
+        </article>
+
+        <article class="rule-card" data-reveal="up" data-delay="500">
+          <div class="rule-header">
+            <div class="rule-icon">⏱️</div>
+            <div class="rule-tag tag-green">Match forfeit</div>
+          </div>
+          <h3 class="rule-title">Punctuality required</h3>
+          <p class="rule-desc">Be in lobbies before match time — no late entries.</p>
+        </article>
+      </div>
+
+      <div class="notice">
+        All participants must follow these rules strictly. Organizers may disqualify violators. Decisions by the organizing team are final and binding.
+      </div>
+    </div>
+  </section>
+
+  <!-- QR popup -->
+  <div id="qr-popup" class="qr-popup hidden" aria-hidden="true" role="dialog" aria-label="eSewa QR">
+    <div class="qr-content">
+      <h3>📱 Scan to pay with eSewa</h3>
+      <img src="qrcode.jpg" alt="eSewa QR code" class="qr-image" />
+      <button id="closeQR" class="btn btn-primary">Done</button>
     </div>
   </div>
+
+  <!-- Success overlay -->
+  <div id="success-overlay" class="success-overlay hidden" aria-hidden="true">
+    <div class="success-box">✅ Successfully Registered!</div>
+  </div>
+
+  <!-- Help popup trigger and popup -->
+  <button class="help-fab" id="helpFab" aria-label="Open help">?</button>
+  <div class="help-popup hidden" id="helpPopup" role="dialog" aria-label="Help & contact">
+    <div class="help-card">
+      <button class="help-close" id="helpClose" aria-label="Close help">✖</button>
+      <h3 class="help-title">Need help?</h3>
+      <p class="help-desc">Contact us on WhatsApp for quick support.</p>
+      <a class="btn btn-whatsapp" href="https://wa.me/9863429320" target="_blank" rel="noopener">WhatsApp: 9863429320</a>
+    </div>
+  </div>
+
+  <!-- Footer with NGL logo -->
+  <footer class="footer">
+    <img src="image.png" alt="Nepal Gaming League logo" class="footer-logo" />
+    <div class="footer-text">Nepal Gaming League • © 2025</div>
+  </footer>
 
   <script src="script.js"></script>
 </body>
