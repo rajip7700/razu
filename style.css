@@ -115,7 +115,6 @@ input#uid.valid {
   justify-content: center;
   align-items: center;
   z-index: 9998;
-  transition: opacity 0.3s ease;
 }
 
 .qr-popup.hidden {
@@ -124,11 +123,12 @@ input#uid.valid {
 
 .qr-content {
   background: #fff;
-  padding: 30px;
-  border-radius: 12px;
+  padding: 40px;
+  border-radius: 16px;
   text-align: center;
-  box-shadow: 0 0 25px #00ff99;
-  max-width: 90%;
+  box-shadow: 0 0 30px #00ff99;
+  max-width: 400px;
+  width: 90%;
 }
 
 .qr-content h2 {
@@ -137,9 +137,12 @@ input#uid.valid {
 }
 
 .qr-image {
-  width: 200px;
-  height: 200px;
+  width: 100%;
+  max-width: 320px;
+  height: auto;
   margin-bottom: 20px;
+  border-radius: 12px;
+  box-shadow: 0 0 20px #00ff99;
 }
 
 #txid {
