@@ -1,216 +1,979 @@
-<!DOCTYPE html>
+                                                                            <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <title>Galaxy NGL — Grand Tournament</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <link rel="stylesheet" href="style.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game Top-Up Service</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <!-- Galaxy Background -->
-  <div class="galaxy-bg">
-    <div class="stars layer-1"></div>
-    <div class="stars layer-2"></div>
-    <div class="twinkle"></div>
-  </div>
-
-  <!-- Top bar: left logo + right floating controls -->
-  <header class="topbar">
-    <div class="brand">
-      <img src="ngl-logo.png" alt="NGL logo" class="brand-logo" />
-      <div class="brand-text">
-        <strong>Nepal Gaming League</strong>
-        <span>Nepal • Free Fire tournaments</span>
-      </div>
+    <div id="loading-screen">
+        <div class="loader"></div>
+        <p>Loading...</p>
     </div>
-    <nav class="floating-nav">
-      <a href="#register" class="btn btn-primary" id="btnToRegister">Register</a>
-      <a href="#rules" class="btn btn-secondary" id="btnToRules">Rules</a>
-    </nav>
-  </header>
+    <header>
+        <img src="nepal flag.png" alt="Nepal Flag" class="nepal-flag left">
+        <h1>Game Top-Up Service 🇳🇵</h1>
+        <img src="nepal flag.png" alt="Nepal Flag" class="nepal-flag right">
+        <p>Top up your favorite games instantly!</p>
+    </header>
 
-  <!-- Hero: grand tournament + giveaway -->
-  <section id="hero" class="section hero" aria-label="Grand prizes hero">
-    <div class="hero-wrap">
-      <h1 class="hero-title">
-        <span class="line">Grand Tournament</span>
-        <span class="line accent">Nepal’s most competitive Free Fire experience</span>
-      </h1>
+    <main>
+        <section id="homepage">
+            <h2>Select Your Game</h2>
+            <div class="game-grid">
+                <div class="game-item" data-game="mobilelegends">
+                    <img src="mobilelegend.png" alt="Mobile Legends">
+                    <h3>Mobile Legends Diamonds</h3>
+                </div>
+                <div class="game-item" data-game="roblox">
+                    <img src="roblox.png" alt="Roblox">
+                    <h3>Roblox Robux</h3>
+                </div>
+                <div class="game-item" data-game="freefire">
+                    <img src="freefire.png" alt="Free Fire">
+                    <h3>Free Fire Diamonds</h3>
+                </div>
+                <div class="game-item" data-game="pubg">
+                    <img src="pubg.png" alt="PUBG">
+                    <h3>PUBG UC</h3>
+                </div>
+            </div>
+        </section>
 
-      <!-- Giveaway box -->
-      <div class="giveaway-box">
-        <div class="giveaway-title">GRAND GIVEAWAY</div>
-        <div class="giveaway-prize">
-          <span class="primary">iPhone 14 Pro Max</span>
-          <span class="plus">+ Rs 50,000</span>
+        <section id="reviews">
+            <h2>What Our Customers Say</h2>
+            <div class="reviews-container">
+                <div class="floating-element">💖</div>
+                <div class="floating-element">⭐</div>
+                <div class="floating-element">💕</div>
+                <div class="floating-element">🌟</div>
+
+                <div class="review-item">
+                    <p>"Secure and trustworthy. No issues with my purchase."</p>
+                    <span class="reviewer">- PANEL USER</span>
+                </div>
+                <div class="review-item">
+                    <p>"Great experience! Instant delivery as promised."</p>
+                    <span class="reviewer">- GAME MASTER</span>
+                </div>
+                <div class="review-item">
+                    <p>"Affordable and quick. Perfect for gamers on budget."</p>
+                    <span class="reviewer">- PRO PLAYER</span>
+                </div>
+                <div class="review-item">
+                    <p>"Outstanding service! Diamonds delivered in seconds. 5 stars!"</p>
+                    <span class="reviewer">- MOBILE GAMER</span>
+                </div>
+                <div class="review-item">
+                    <p>"Very satisfied with the instant delivery. Will definitely return!"</p>
+                    <span class="reviewer">- NIGHT OWL</span>
+                </div>
+                <div class="review-item">
+                    <p>"Best top-up service I've used. Fast, cheap, and reliable!"</p>
+                    <span class="reviewer">- GAMING PRO</span>
+                </div>
+                <div class="review-item">
+                    <p>"Got my Robux instantly! Great customer service too."</p>
+                    <span class="reviewer">- ROBLOX FAN</span>
+                </div>
+                <div class="review-item">
+                    <p>"Free Fire diamonds arrived super fast. Highly recommended!"</p>
+                    <span class="reviewer">- FF PLAYER</span>
+                </div>
+                <div class="review-item">
+                    <p>"PUBG UC top-up was instant. No waiting time at all!"</p>
+                    <span class="reviewer">- BATTLE ROYAL</span>
+                </div>
+                <div class="review-item">
+                    <p>"Excellent service! Diamonds were credited immediately."</p>
+                    <span class="reviewer">- MOBILE LEGEND</span>
+                </div>
+                <div class="review-item">
+                    <p>"Very professional and fast delivery. 10/10 service!"</p>
+                    <span class="reviewer">- GAMING ADDICT</span>
+                </div>
+                <div class="review-item">
+                    <p>"Got my weekly pass instantly. Best prices around!"</p>
+                    <span class="reviewer">- WEEKLY GAMER</span>
+                </div>
+                <div class="review-item">
+                    <p>"Trustworthy service. No scams, just pure gaming fun!"</p>
+                    <span class="reviewer">- SAFE PLAYER</span>
+                </div>
+                <div class="review-item">
+                    <p>"Monthly pass delivered in under a minute. Amazing!"</p>
+                    <span class="reviewer">- MONTHLY SUB</span>
+                </div>
+                <div class="review-item">
+                    <p>"Best customer support. Helped me instantly with my order."</p>
+                    <span class="reviewer">- SUPPORTED USER</span>
+                </div>
+                <div class="review-item">
+                    <p>"Got 1000 Robux instantly. Perfect transaction!"</p>
+                    <span class="reviewer">- ROBUX BUYER</span>
+                </div>
+                <div class="review-item">
+                    <p>"Free Fire diamonds were delivered super fast. Love it!"</p>
+                    <span class="reviewer">- DIAMOND HUNTER</span>
+                </div>
+                <div class="review-item">
+                    <p>"PUBG UC arrived in seconds. Great service!"</p>
+                    <span class="reviewer">- UC BUYER</span>
+                </div>
+                <div class="review-item">
+                    <p>"Mobile Legends top-up was instant. Highly satisfied!"</p>
+                    <span class="reviewer">- ML PLAYER</span>
+                </div>
+                <div class="review-item">
+                    <p>"Fast delivery and great prices. Will use again!"</p>
+                    <span class="reviewer">- REGULAR CUSTOMER</span>
+                </div>
+                <div class="review-item">
+                    <p>"Got my Elite Weekly pass instantly. Perfect!"</p>
+                    <span class="reviewer">- ELITE GAMER</span>
+                </div>
+                <div class="review-item">
+                    <p>"Trustworthy and reliable. No issues whatsoever."</p>
+                    <span class="reviewer">- TRUSTED USER</span>
+                </div>
+                <div class="review-item">
+                    <p>"Diamonds arrived in under 30 seconds. Incredible!"</p>
+                    <span class="reviewer">- SPEED USER</span>
+                </div>
+                <div class="review-item">
+                    <p>"Best gaming top-up service. Fast and secure!"</p>
+                    <span class="reviewer">- GAMING EXPERT</span>
+                </div>
+                <div class="review-item">
+                    <p>"Got 3000 Robux instantly. Very happy with service!"</p>
+                    <span class="reviewer">- ROBLOX PRO</span>
+                </div>
+                <div class="review-item">
+                    <p>"Free Fire top-up was lightning fast. Recommended!"</p>
+                    <span class="reviewer">- FF EXPERT</span>
+                </div>
+                <div class="review-item">
+                    <p>"PUBG UC delivered instantly. Great experience!"</p>
+                    <span class="reviewer">- PUBG PLAYER</span>
+                </div>
+                <div class="review-item">
+                    <p>"Mobile Legends diamonds arrived immediately. Perfect!"</p>
+                    <span class="reviewer">- LEGEND PLAYER</span>
+                </div>
+                <div class="review-item">
+                    <p>"Fast, reliable, and affordable. 5 stars service!"</p>
+                    <span class="reviewer">- HAPPY GAMER</span>
+                </div>
+                <div class="review-item">
+                    <p>"Got my weekly pass in seconds. Amazing speed!"</p>
+                    <span class="reviewer">- WEEKLY BUYER</span>
+                </div>
+                <div class="review-item">
+                    <p>"Secure payment and instant delivery. Love it!"</p>
+                    <span class="reviewer">- SECURE USER</span>
+                </div>
+                <div class="review-item">
+                    <p>"Monthly pass arrived instantly. Best service ever!"</p>
+                    <span class="reviewer">- MONTHLY GAMER</span>
+                </div>
+                <div class="review-item">
+                    <p>"Customer support is excellent. Helped me right away."</p>
+                    <span class="reviewer">- SUPPORT FAN</span>
+                </div>
+                <div class="review-item">
+                    <p>"Got 2000 Robux instantly. Perfect transaction!"</p>
+                    <span class="reviewer">- ROBUX FAN</span>
+                </div>
+                <div class="review-item">
+                    <p>"Free Fire diamonds delivered super fast. Amazing!"</p>
+                    <span class="reviewer">- DIAMOND FAN</span>
+                </div>
+                <div class="review-item">
+                    <p>"PUBG UC was instant. No waiting at all!"</p>
+                    <span class="reviewer">- UC FAN</span>
+                </div>
+                <div class="review-item">
+                    <p>"Mobile Legends top-up was lightning fast. Great!"</p>
+                    <span class="reviewer">- ML FAN</span>
+                </div>
+                <div class="review-item">
+                    <p>"Fast delivery and great prices. Highly recommended!"</p>
+                    <span class="reviewer">- REGULAR FAN</span>
+                </div>
+                <div class="review-item">
+                    <p>"Got Elite Weekly instantly. Perfect service!"</p>
+                    <span class="reviewer">- ELITE FAN</span>
+                </div>
+                <div class="review-item">
+                    <p>"Trustworthy and reliable. No complaints!"</p>
+                    <span class="reviewer">- TRUST FAN</span>
+                </div>
+                <div class="review-item">
+                    <p>"Diamonds arrived in seconds. Incredible speed!"</p>
+                    <span class="reviewer">- SPEED FAN</span>
+                </div>
+                <div class="review-item">
+                    <p>"Best gaming service. Fast and secure delivery!"</p>
+                    <span class="reviewer">- EXPERT FAN</span>
+                </div>
+                <div class="review-item">
+                    <p>"Got 1500 Robux instantly. Very satisfied!"</p>
+                    <span class="reviewer">- ROBLOX FAN 2</span>
+                </div>
+                <div class="review-item">
+                    <p>"Free Fire top-up was instant. Love the service!"</p>
+                    <span class="reviewer">- FF FAN 2</span>
+                </div>
+                <div class="review-item">
+                    <p>"PUBG UC delivered immediately. Great job!"</p>
+                    <span class="reviewer">- PUBG FAN 2</span>
+                </div>
+                <div class="review-item">
+                    <p>"Mobile Legends diamonds arrived instantly. Perfect!"</p>
+                    <span class="reviewer">- LEGEND FAN 2</span>
+                </div>
+                <div class="review-item">
+                    <p>"Fast, reliable, and affordable. Best choice!"</p>
+                    <span class="reviewer">- HAPPY FAN 2</span>
+                </div>
+                <div class="review-item">
+                    <p>"Weekly pass in seconds. Amazing service!"</p>
+                    <span class="reviewer">- WEEKLY FAN 2</span>
+                </div>
+                <div class="review-item">
+                    <p>"Secure and instant. Highly recommended!"</p>
+                    <span class="reviewer">- SECURE FAN 2</span>
+                </div>
+                <div class="review-item">
+                    <p>"Monthly pass arrived instantly. Perfect!"</p>
+                    <span class="reviewer">- MONTHLY FAN 2</span>
+                </div>
+                <div class="review-item">
+                    <p>"Excellent support and fast delivery. 5 stars!"</p>
+                    <span class="reviewer">- SUPPORT FAN 2</span>
+                </div>
+                <div class="review-item">
+                    <p>"Got 800 Robux instantly. Great experience!"</p>
+                    <span class="reviewer">- ROBUX FAN 2</span>
+                </div>
+                <div class="review-item">
+                    <p>"Free Fire diamonds super fast. Love it!"</p>
+                    <span class="reviewer">- DIAMOND FAN 2</span>
+                </div>
+                <div class="review-item">
+                    <p>"PUBG UC instant delivery. Perfect service!"</p>
+                    <span class="reviewer">- UC FAN 2</span>
+                </div>
+                <div class="review-item">
+                    <p>"Mobile Legends top-up lightning fast. Amazing!"</p>
+                    <span class="reviewer">- ML FAN 2</span>
+                </div>
+                <div class="review-item">
+                    <p>"Fast delivery and best prices. Recommended!"</p>
+                    <span class="reviewer">- REGULAR FAN 2</span>
+                </div>
+                <div class="review-item">
+                    <p>"Elite Weekly pass instantly. Great service!"</p>
+                    <span class="reviewer">- ELITE FAN 2</span>
+                </div>
+                <div class="review-item">
+                    <p>"Trustworthy and reliable. No issues!"</p>
+                    <span class="reviewer">- TRUST FAN 2</span>
+                </div>
+                <div class="review-item">
+                    <p>"Diamonds in under 30 seconds. Incredible!"</p>
+                    <span class="reviewer">- SPEED FAN 2</span>
+                </div>
+                <div class="review-item">
+                    <p>"Best gaming top-up. Fast and secure!"</p>
+                    <span class="reviewer">- EXPERT FAN 2</span>
+                </div>
+                <div class="review-item">
+                    <p>"Got 500 Robux instantly. Very happy!"</p>
+                    <span class="reviewer">- ROBLOX FAN 3</span>
+                </div>
+                <div class="review-item">
+                    <p>"Free Fire top-up instant. Recommended!"</p>
+                    <span class="reviewer">- FF FAN 3</span>
+                </div>
+                <div class="review-item">
+                    <p>"PUBG UC delivered immediately. Great!"</p>
+                    <span class="reviewer">- PUBG FAN 3</span>
+                </div>
+                <div class="review-item">
+                    <p>"Mobile Legends diamonds instant. Perfect!"</p>
+                    <span class="reviewer">- LEGEND FAN 3</span>
+                </div>
+                <div class="review-item">
+                    <p>"Fast, reliable, affordable. Best service!"</p>
+                    <span class="reviewer">- HAPPY FAN 3</span>
+                </div>
+                <div class="review-item">
+                    <p>"Weekly pass in seconds. Amazing speed!"</p>
+                    <span class="reviewer">- WEEKLY FAN 3</span>
+                </div>
+                <div class="review-item">
+                    <p>"Secure payment and instant delivery!"</p>
+                    <span class="reviewer">- SECURE FAN 3</span>
+                </div>
+                <div class="review-item">
+                    <p>"Monthly pass instant. Best ever!"</p>
+                    <span class="reviewer">- MONTHLY FAN 3</span>
+                </div>
+                <div class="review-item">
+                    <p>"Excellent support and fast. 5 stars!"</p>
+                    <span class="reviewer">- SUPPORT FAN 3</span>
+                </div>
+                <div class="review-item">
+                    <p>"Got 400 Robux instantly. Perfect!"</p>
+                    <span class="reviewer">- ROBUX FAN 3</span>
+                </div>
+                <div class="review-item">
+                    <p>"Free Fire diamonds fast. Love it!"</p>
+                    <span class="reviewer">- DIAMOND FAN 3</span>
+                </div>
+                <div class="review-item">
+                    <p>"PUBG UC instant. No waiting!"</p>
+                    <span class="reviewer">- UC FAN 3</span>
+                </div>
+                <div class="review-item">
+                    <p>"Mobile Legends top-up fast. Great!"</p>
+                    <span class="reviewer">- ML FAN 3</span>
+                </div>
+                <div class="review-item">
+                    <p>"Fast delivery best prices. Recommended!"</p>
+                    <span class="reviewer">- REGULAR FAN 3</span>
+                </div>
+                <div class="review-item">
+                    <p>"Elite Weekly instantly. Perfect!"</p>
+                    <span class="reviewer">- ELITE FAN 3</span>
+                </div>
+                <div class="review-item">
+                    <p>"Trustworthy reliable. No complaints!"</p>
+                    <span class="reviewer">- TRUST FAN 3</span>
+                </div>
+                <div class="review-item">
+                    <p>"Diamonds in seconds. Incredible!"</p>
+                    <span class="reviewer">- SPEED FAN 3</span>
+                </div>
+                <div class="review-item">
+                    <p>"Best gaming service. Fast secure!"</p>
+                    <span class="reviewer">- EXPERT FAN 3</span>
+                </div>
+                <div class="review-item">
+                    <p>"Got 300 Robux instantly. Happy!"</p>
+                    <span class="reviewer">- ROBLOX FAN 4</span>
+                </div>
+                <div class="review-item">
+                    <p>"Free Fire top-up instant. Love!"</p>
+                    <span class="reviewer">- FF FAN 4</span>
+                </div>
+                <div class="review-item">
+                    <p>"PUBG UC immediately. Great job!"</p>
+                    <span class="reviewer">- PUBG FAN 4</span>
+                </div>
+                <div class="review-item">
+                    <p>"Mobile Legends diamonds instant!"</p>
+                    <span class="reviewer">- LEGEND FAN 4</span>
+                </div>
+                <div class="review-item">
+                    <p>"Fast reliable affordable. Best!"</p>
+                    <span class="reviewer">- HAPPY FAN 4</span>
+                </div>
+                <div class="review-item">
+                    <p>"Weekly pass seconds. Amazing!"</p>
+                    <span class="reviewer">- WEEKLY FAN 4</span>
+                </div>
+                <div class="review-item">
+                    <p>"Secure instant. Recommended!"</p>
+                    <span class="reviewer">- SECURE FAN 4</span>
+                </div>
+                <div class="review-item">
+                    <p>"Monthly pass instant. Perfect!"</p>
+                    <span class="reviewer">- MONTHLY FAN 4</span>
+                </div>
+                <div class="review-item">
+                    <p>"Excellent support fast. 5 stars!"</p>
+                    <span class="reviewer">- SUPPORT FAN 4</span>
+                </div>
+                <div class="review-item">
+                    <p>"Got 1000 Robux instantly. Great!"</p>
+                    <span class="reviewer">- ROBUX FAN 4</span>
+                </div>
+                <div class="review-item">
+                    <p>"Free Fire diamonds super fast!"</p>
+                    <span class="reviewer">- DIAMOND FAN 4</span>
+                </div>
+                <div class="review-item">
+                    <p>"PUBG UC instant delivery!"</p>
+                    <span class="reviewer">- UC FAN 4</span>
+                </div>
+                <div class="review-item">
+                    <p>"Mobile Legends top-up fast!"</p>
+                    <span class="reviewer">- ML FAN 4</span>
+                </div>
+                <div class="review-item">
+                    <p>"Fast delivery best prices!"</p>
+                    <span class="reviewer">- REGULAR FAN 4</span>
+                </div>
+                <div class="review-item">
+                    <p>"Elite Weekly instantly. Great!"</p>
+                    <span class="reviewer">- ELITE FAN 4</span>
+                </div>
+                <div class="review-item">
+                    <p>"Trustworthy reliable. Perfect!"</p>
+                    <span class="reviewer">- TRUST FAN 4</span>
+                </div>
+                <div class="review-item">
+                    <p>"Diamonds under 30 seconds!"</p>
+                    <span class="reviewer">- SPEED FAN 4</span>
+                </div>
+                <div class="review-item">
+                    <p>"Best gaming top-up. Secure!"</p>
+                    <span class="reviewer">- EXPERT FAN 4</span>
+                </div>
+                <div class="review-item">
+                    <p>"Got 2500 Robux instantly. Amazing!"</p>
+                    <span class="reviewer">- ROBUX FAN 5</span>
+                </div>
+                <div class="review-item">
+                    <p>"Free Fire top-up was perfect. Love it!"</p>
+                    <span class="reviewer">- FF FAN 5</span>
+                </div>
+                <div class="review-item">
+                    <p>"PUBG UC delivered instantly. Perfect!"</p>
+                    <span class="reviewer">- PUBG FAN 5</span>
+                </div>
+                <div class="review-item">
+                    <p>"Mobile Legends diamonds arrived fast!"</p>
+                    <span class="reviewer">- LEGEND FAN 5</span>
+                </div>
+                <div class="review-item">
+                    <p>"Fast reliable affordable. Excellent!"</p>
+                    <span class="reviewer">- HAPPY FAN 5</span>
+                </div>
+                <div class="review-item">
+                    <p>"Weekly pass in seconds. Perfect!"</p>
+                    <span class="reviewer">- WEEKLY FAN 5</span>
+                </div>
+                <div class="review-item">
+                    <p>"Secure instant delivery. Great!"</p>
+                    <span class="reviewer">- SECURE FAN 5</span>
+                </div>
+                <div class="review-item">
+                    <p>"Monthly pass arrived fast. Love it!"</p>
+                    <span class="reviewer">- MONTHLY FAN 5</span>
+                </div>
+                <div class="review-item">
+                    <p>"Excellent support fast delivery!"</p>
+                    <span class="reviewer">- SUPPORT FAN 5</span>
+                </div>
+                <div class="review-item">
+                    <p>"Got 1500 Robux instantly. Perfect!"</p>
+                    <span class="reviewer">- ROBUX FAN 6</span>
+                </div>
+                <div class="review-item">
+                    <p>"Free Fire diamonds super fast. Great!"</p>
+                    <span class="reviewer">- DIAMOND FAN 5</span>
+                </div>
+                <div class="review-item">
+                    <p>"PUBG UC instant. No waiting!"</p>
+                    <span class="reviewer">- UC FAN 5</span>
+                </div>
+                <div class="review-item">
+                    <p>"Mobile Legends top-up fast. Perfect!"</p>
+                    <span class="reviewer">- ML FAN 5</span>
+                </div>
+                <div class="review-item">
+                    <p>"Fast delivery best prices. Amazing!"</p>
+                    <span class="reviewer">- REGULAR FAN 5</span>
+                </div>
+                <div class="review-item">
+                    <p>"Elite Weekly instantly. Excellent!"</p>
+                    <span class="reviewer">- ELITE FAN 5</span>
+                </div>
+                <div class="review-item">
+                    <p>"Trustworthy reliable. Perfect service!"</p>
+                    <span class="reviewer">- TRUST FAN 5</span>
+                </div>
+                <div class="review-item">
+                    <p>"Diamonds in 30 seconds. Incredible!"</p>
+                    <span class="reviewer">- SPEED FAN 5</span>
+                </div>
+                <div class="review-item">
+                    <p>"Best gaming service. Fast secure!"</p>
+                    <span class="reviewer">- EXPERT FAN 5</span>
+                </div>
+                <div class="review-item">
+                    <p>"Got 2000 Robux instantly. Happy!"</p>
+                    <span class="reviewer">- ROBUX FAN 7</span>
+                </div>
+                <div class="review-item">
+                    <p>"Free Fire top-up instant. Perfect!"</p>
+                    <span class="reviewer">- FF FAN 6</span>
+                </div>
+                <div class="review-item">
+                    <p>"PUBG UC delivered immediately!"</p>
+                    <span class="reviewer">- PUBG FAN 6</span>
+                </div>
+                <div class="review-item">
+                    <p>"Mobile Legends diamonds instant!"</p>
+                    <span class="reviewer">- LEGEND FAN 6</span>
+                </div>
+                <div class="review-item">
+                    <p>"Fast reliable affordable. Best!"</p>
+                    <span class="reviewer">- HAPPY FAN 6</span>
+                </div>
+                <div class="review-item">
+                    <p>"Weekly pass seconds. Amazing!"</p>
+                    <span class="reviewer">- WEEKLY FAN 6</span>
+                </div>
+                <div class="review-item">
+                    <p>"Secure instant. Highly recommended!"</p>
+                    <span class="reviewer">- SECURE FAN 6</span>
+                </div>
+                <div class="review-item">
+                    <p>"Monthly pass instant. Perfect!"</p>
+                    <span class="reviewer">- MONTHLY FAN 6</span>
+                </div>
+                <div class="review-item">
+                    <p>"Excellent support fast. 5 stars!"</p>
+                    <span class="reviewer">- SUPPORT FAN 6</span>
+                </div>
+                <div class="review-item">
+                    <p>"Got 800 Robux instantly. Great!"</p>
+                    <span class="reviewer">- ROBUX FAN 8</span>
+                </div>
+                <div class="review-item">
+                    <p>"Free Fire diamonds fast. Love it!"</p>
+                    <span class="reviewer">- DIAMOND FAN 6</span>
+                </div>
+                <div class="review-item">
+                    <p>"PUBG UC instant delivery!"</p>
+                    <span class="reviewer">- UC FAN 6</span>
+                </div>
+                <div class="review-item">
+                    <p>"Mobile Legends top-up fast!"</p>
+                    <span class="reviewer">- ML FAN 6</span>
+                </div>
+                <div class="review-item">
+                    <p>"Fast delivery best prices!"</p>
+                    <span class="reviewer">- REGULAR FAN 6</span>
+                </div>
+                <div class="review-item">
+                    <p>"Elite Weekly instantly. Great!"</p>
+                    <span class="reviewer">- ELITE FAN 6</span>
+                </div>
+                <div class="review-item">
+                    <p>"Trustworthy reliable. Perfect!"</p>
+                    <span class="reviewer">- TRUST FAN 6</span>
+                </div>
+                <div class="review-item">
+                    <p>"Diamonds under 30 seconds!"</p>
+                    <span class="reviewer">- SPEED FAN 6</span>
+                </div>
+                <div class="review-item">
+                    <p>"Best gaming top-up. Secure!"</p>
+                    <span class="reviewer">- EXPERT FAN 6</span>
+                </div>
+                <div class="review-item">
+                    <p>"Got 3000 Robux instantly. Amazing!"</p>
+                    <span class="reviewer">- ROBUX FAN 9</span>
+                </div>
+                <div class="review-item">
+                    <p>"Free Fire top-up was perfect!"</p>
+                    <span class="reviewer">- FF FAN 7</span>
+                </div>
+                <div class="review-item">
+                    <p>"PUBG UC delivered instantly!"</p>
+                    <span class="reviewer">- PUBG FAN 7</span>
+                </div>
+                <div class="review-item">
+                    <p>"Mobile Legends diamonds fast!"</p>
+                    <span class="reviewer">- LEGEND FAN 7</span>
+                </div>
+                <div class="review-item">
+                    <p>"Fast reliable affordable. Excellent!"</p>
+                    <span class="reviewer">- HAPPY FAN 7</span>
+                </div>
+                <div class="review-item">
+                    <p>"Weekly pass in seconds. Perfect!"</p>
+                    <span class="reviewer">- WEEKLY FAN 7</span>
+                </div>
+                <div class="review-item">
+                    <p>"Secure instant delivery. Great!"</p>
+                    <span class="reviewer">- SECURE FAN 7</span>
+                </div>
+                <div class="review-item">
+                    <p>"Monthly pass arrived fast. Love it!"</p>
+                    <span class="reviewer">- MONTHLY FAN 7</span>
+                </div>
+                <div class="review-item">
+                    <p>"Excellent support fast delivery!"</p>
+                    <span class="reviewer">- SUPPORT FAN 7</span>
+                </div>
+                <div class="review-item">
+                    <p>"Got 1000 Robux instantly. Perfect!"</p>
+                    <span class="reviewer">- ROBUX FAN 10</span>
+                </div>
+                <div class="review-item">
+                    <p>"Free Fire diamonds super fast. Great!"</p>
+                    <span class="reviewer">- DIAMOND FAN 7</span>
+                </div>
+                <div class="review-item">
+                    <p>"PUBG UC instant. No waiting!"</p>
+                    <span class="reviewer">- UC FAN 7</span>
+                </div>
+                <div class="review-item">
+                    <p>"Mobile Legends top-up fast. Perfect!"</p>
+                    <span class="reviewer">- ML FAN 7</span>
+                </div>
+                <div class="review-item">
+                    <p>"Fast delivery best prices. Amazing!"</p>
+                    <span class="reviewer">- REGULAR FAN 7</span>
+                </div>
+                <div class="review-item">
+                    <p>"Elite Weekly instantly. Excellent!"</p>
+                    <span class="reviewer">- ELITE FAN 7</span>
+                </div>
+                <div class="review-item">
+                    <p>"Trustworthy reliable. Perfect service!"</p>
+                    <span class="reviewer">- TRUST FAN 7</span>
+                </div>
+                <div class="review-item">
+                    <p>"Diamonds in 30 seconds. Incredible!"</p>
+                    <span class="reviewer">- SPEED FAN 7</span>
+                </div>
+                <div class="review-item">
+                    <p>"Best gaming service. Fast secure!"</p>
+                    <span class="reviewer">- EXPERT FAN 7</span>
+                </div>
+                <div class="review-item">
+                    <p>"Got 1500 Robux instantly. Happy!"</p>
+                    <span class="reviewer">- ROBUX FAN 11</span>
+                </div>
+                <div class="review-item">
+                    <p>"Free Fire top-up instant. Perfect!"</p>
+                    <span class="reviewer">- FF FAN 8</span>
+                </div>
+                <div class="review-item">
+                    <p>"PUBG UC delivered immediately!"</p>
+                    <span class="reviewer">- PUBG FAN 8</span>
+                </div>
+                <div class="review-item">
+                    <p>"Mobile Legends diamonds instant!"</p>
+                    <span class="reviewer">- LEGEND FAN 8</span>
+                </div>
+                <div class="review-item">
+                    <p>"Fast reliable affordable. Best!"</p>
+                    <span class="reviewer">- HAPPY FAN 8</span>
+                </div>
+                <div class="review-item">
+                    <p>"Weekly pass seconds. Amazing!"</p>
+                    <span class="reviewer">- WEEKLY FAN 8</span>
+                </div>
+                <div class="review-item">
+                    <p>"Secure instant. Highly recommended!"</p>
+                    <span class="reviewer">- SECURE FAN 8</span>
+                </div>
+                <div class="review-item">
+                    <p>"Monthly pass instant. Perfect!"</p>
+                    <span class="reviewer">- MONTHLY FAN 8</span>
+                </div>
+                <div class="review-item">
+                    <p>"Excellent support fast. 5 stars!"</p>
+                    <span class="reviewer">- SUPPORT FAN 8</span>
+                </div>
+                <div class="review-item">
+                    <p>"Got 500 Robux instantly. Great!"</p>
+                    <span class="reviewer">- ROBUX FAN 12</span>
+                </div>
+                <div class="review-item">
+                    <p>"Free Fire diamonds fast. Love it!"</p>
+                    <span class="reviewer">- DIAMOND FAN 8</span>
+                </div>
+                <div class="review-item">
+                    <p>"PUBG UC instant delivery!"</p>
+                    <span class="reviewer">- UC FAN 8</span>
+                </div>
+                <div class="review-item">
+                    <p>"Mobile Legends top-up fast!"</p>
+                    <span class="reviewer">- ML FAN 8</span>
+                </div>
+                <div class="review-item">
+                    <p>"Fast delivery best prices!"</p>
+                    <span class="reviewer">- REGULAR FAN 8</span>
+                </div>
+                <div class="review-item">
+                    <p>"Elite Weekly instantly. Great!"</p>
+                    <span class="reviewer">- ELITE FAN 8</span>
+                </div>
+                <div class="review-item">
+                    <p>"Trustworthy reliable. Perfect!"</p>
+                    <span class="reviewer">- TRUST FAN 8</span>
+                </div>
+                <div class="review-item">
+                    <p>"Diamonds under 30 seconds!"</p>
+                    <span class="reviewer">- SPEED FAN 8</span>
+                </div>
+                <div class="review-item">
+                    <p>"Best gaming top-up. Secure!"</p>
+                    <span class="reviewer">- EXPERT FAN 8</span>
+                </div>
+                <div class="review-item">
+                    <p>"Got 400 Robux instantly. Amazing!"</p>
+                    <span class="reviewer">- ROBUX FAN 13</span>
+                </div>
+                <div class="review-item">
+                    <p>"Free Fire top-up was perfect!"</p>
+                    <span class="reviewer">- FF FAN 9</span>
+                </div>
+                <div class="review-item">
+                    <p>"PUBG UC delivered instantly!"</p>
+                    <span class="reviewer">- PUBG FAN 9</span>
+                </div>
+                <div class="review-item">
+                    <p>"Mobile Legends diamonds fast!"</p>
+                    <span class="reviewer">- LEGEND FAN 9</span>
+                </div>
+                <div class="review-item">
+                    <p>"Fast reliable affordable. Excellent!"</p>
+                    <span class="reviewer">- HAPPY FAN 9</span>
+                </div>
+                <div class="review-item">
+                    <p>"Weekly pass in seconds. Perfect!"</p>
+                    <span class="reviewer">- WEEKLY FAN 9</span>
+                </div>
+                <div class="review-item">
+                    <p>"Secure instant delivery. Great!"</p>
+                    <span class="reviewer">- SECURE FAN 9</span>
+                </div>
+                <div class="review-item">
+                    <p>"Monthly pass arrived fast. Love it!"</p>
+                    <span class="reviewer">- MONTHLY FAN 9</span>
+                </div>
+                <div class="review-item">
+                    <p>"Excellent support fast delivery!"</p>
+                    <span class="reviewer">- SUPPORT FAN 9</span>
+                </div>
+                <div class="review-item">
+                    <p>"Got 2500 Robux instantly. Perfect!"</p>
+                    <span class="reviewer">- ROBUX FAN 14</span>
+                </div>
+                <div class="review-item">
+                    <p>"Free Fire diamonds super fast. Great!"</p>
+                    <span class="reviewer">- DIAMOND FAN 9</span>
+                </div>
+                <div class="review-item">
+                    <p>"PUBG UC instant. No waiting!"</p>
+                    <span class="reviewer">- UC FAN 9</span>
+                </div>
+                <div class="review-item">
+                    <p>"Mobile Legends top-up fast. Perfect!"</p>
+                    <span class="reviewer">- ML FAN 9</span>
+                </div>
+                <div class="review-item">
+                    <p>"Fast delivery best prices. Amazing!"</p>
+                    <span class="reviewer">- REGULAR FAN 9</span>
+                </div>
+                <div class="review-item">
+                    <p>"Elite Weekly instantly. Excellent!"</p>
+                    <span class="reviewer">- ELITE FAN 9</span>
+                </div>
+                <div class="review-item">
+                    <p>"Trustworthy reliable. Perfect service!"</p>
+                    <span class="reviewer">- TRUST FAN 9</span>
+                </div>
+                <div class="review-item">
+                    <p>"Diamonds in 30 seconds. Incredible!"</p>
+                    <span class="reviewer">- SPEED FAN 9</span>
+                </div>
+                <div class="review-item">
+                    <p>"Best gaming service. Fast secure!"</p>
+                    <span class="reviewer">- EXPERT FAN 9</span>
+                </div>
+                <div class="review-item">
+                    <p>"Got 1800 Robux instantly. Happy!"</p>
+                    <span class="reviewer">- ROBUX FAN 15</span>
+                </div>
+                <div class="review-item">
+                    <p>"Free Fire top-up instant. Perfect!"</p>
+                    <span class="reviewer">- FF FAN 10</span>
+                </div>
+                <div class="review-item">
+                    <p>"PUBG UC delivered immediately!"</p>
+                    <span class="reviewer">- PUBG FAN 10</span>
+                </div>
+                <div class="review-item">
+                    <p>"Mobile Legends diamonds instant!"</p>
+                    <span class="reviewer">- LEGEND FAN 10</span>
+                </div>
+                <div class="review-item">
+                    <p>"Fast reliable affordable. Best!"</p>
+                    <span class="reviewer">- HAPPY FAN 10</span>
+                </div>
+                <div class="review-item">
+                    <p>"Weekly pass seconds. Amazing!"</p>
+                    <span class="reviewer">- WEEKLY FAN 10</span>
+                </div>
+                <div class="review-item">
+                    <p>"Secure instant. Highly recommended!"</p>
+                    <span class="reviewer">- SECURE FAN 10</span>
+                </div>
+                <div class="review-item">
+                    <p>"Monthly pass instant. Perfect!"</p>
+                    <span class="reviewer">- MONTHLY FAN 10</span>
+                </div>
+                <div class="review-item">
+                    <p>"Excellent support fast. 5 stars!"</p>
+                    <span class="reviewer">- SUPPORT FAN 10</span>
+                </div>
+                <div class="review-item">
+                    <p>"Got 1200 Robux instantly. Great!"</p>
+                    <span class="reviewer">- ROBUX FAN 16</span>
+                </div>
+                <div class="review-item">
+                    <p>"Free Fire diamonds fast. Love it!"</p>
+                    <span class="reviewer">- DIAMOND FAN 10</span>
+                </div>
+                <div class="review-item">
+                    <p>"PUBG UC instant delivery!"</p>
+                    <span class="reviewer">- UC FAN 10</span>
+                </div>
+                <div class="review-item">
+                    <p>"Mobile Legends top-up fast!"</p>
+                    <span class="reviewer">- ML FAN 10</span>
+                </div>
+                <div class="review-item">
+                    <p>"Fast delivery best prices!"</p>
+                    <span class="reviewer">- REGULAR FAN 10</span>
+                </div>
+                <div class="review-item">
+                    <p>"Elite Weekly instantly. Great!"</p>
+                    <span class="reviewer">- ELITE FAN 10</span>
+                </div>
+                <div class="review-item">
+                    <p>"Trustworthy reliable. Perfect!"</p>
+                    <span class="reviewer">- TRUST FAN 10</span>
+                </div>
+                <div class="review-item">
+                    <p>"Diamonds under 30 seconds!"</p>
+                    <span class="reviewer">- SPEED FAN 10</span>
+                </div>
+                <div class="review-item">
+                    <p>"Best gaming top-up. Secure!"</p>
+                    <span class="reviewer">- EXPERT FAN 10</span>
+                </div>
+            </div>
+        </section>
+
+    <section id="support-care">
+        <div class="floating-heart">💖</div>
+        <div class="floating-heart">💕</div>
+        <div class="floating-heart">💗</div>
+        <div class="floating-heart">💓</div>
+        <h2>Support & Care 💖</h2>
+        <p>We're here to help! Send us your message and we'll get back to you soon. 🌸</p>
+            <form id="support-form">
+                <label for="support-phone">Phone Number 📱:</label>
+                <input type="tel" id="support-phone" name="support-phone" required placeholder="Enter your phone number">
+
+                <label for="support-gmail">Gmail 📧:</label>
+                <input type="email" id="support-gmail" name="support-gmail" required placeholder="Enter your Gmail">
+
+                <label for="support-message">Message 💌:</label>
+                <textarea id="support-message" name="support-message" required placeholder="Tell us how we can help you..."></textarea>
+
+                <button type="submit">Send Message 💕</button>
+            </form>
+            <div id="support-feedback"></div>
+        </section>
+
+        <section id="game-section" class="hidden">
+            <button id="back-btn">Back to Games</button>
+            <h2 id="game-title"></h2>
+            <div id="price-list"></div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Support & Care</h3>
+                <div class="footer-text">
+                    <p>Contact us at <strong>support@gametopup.com</strong></p>
+                    <p>We're here to help with any questions or issues!</p>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h3>Our Services</h3>
+                <div class="footer-text">
+                    <p><strong>100% Safe & Secure</strong> ✅🔥</p>
+                    <p><strong>Instant Delivery</strong> 0–5 Min 🚚</p>
+                    <p>Trusted by thousands of gamers worldwide</p>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h3>Follow Us</h3>
+                <div class="social-media">
+                    <a href="#" class="social-link facebook" title="Follow us on Facebook">
+                        <i class="fab fa-facebook-f"></i> Facebook
+                    </a>
+                    <a href="#" class="social-link telegram" title="Join us on Telegram">
+                        <i class="fab fa-telegram-plane"></i> Telegram
+                    </a>
+                </div>
+                <div class="game-logos">
+                    <img src="mobilelegend.png" alt="Mobile Legends" class="footer-game-logo">
+                    <img src="roblox.png" alt="Roblox" class="footer-game-logo">
+                    <img src="freefire.png" alt="Free Fire" class="footer-game-logo">
+                    <img src="pubg.png" alt="PUBG" class="footer-game-logo">
+                </div>
+            </div>
         </div>
-        <div class="eligibility">Only for Nepali players</div>
-      </div>
-
-      <!-- Stats (animated numbers for 3s, then settle) -->
-      <div class="stats">
-        <div class="stat-card glow">
-          <div class="stat-value rolling" data-target="500" id="statMaxSlots">0</div>
-          <div class="stat-label">Max slots</div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Game Top-Up Service. All rights reserved.</p>
+            <p>Experience the <span class="highlight">ultimate</span> gaming top-up service with lightning-fast delivery and unbeatable security.</p>
         </div>
-        <div class="stat-card glow">
-          <div class="stat-value rolling" data-target="247" id="statRegistered">0</div>
-          <div class="stat-label">Registered</div>
-        </div>
-        <div class="stat-card glow">
-          <div class="stat-value" id="countdown">48h</div>
-          <div class="stat-label">Time left</div>
-        </div>
-      </div>
+    </footer>
 
-      <!-- Prize pool badge -->
-      <div class="prize-pool">
-        <div class="pool-title">Tournament Prize Pool</div>
-        <div class="pool-amount">Rs 10,000</div>
-      </div>
+    <!-- Modal for Buy Form -->
+    <div id="buy-modal" class="modal hidden">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h3>Complete Your Purchase</h3>
+            <form id="buy-form">
+                <label for="game-name">Game Name:</label>
+                <input type="text" id="game-name" name="game-name" readonly>
 
-      <!-- Register Now button + down arrow -->
-      <a href="#register" class="btn btn-primary btn-hero">⚡ Register Now</a>
-      <div class="scroll-down">
-        <span class="scroll-text">Scroll down to register</span>
-        <div class="arrow-down"></div>
-      </div>
+                <label for="package">Package:</label>
+                <input type="text" id="package" name="package" readonly>
+
+                <label for="price">Price:</label>
+                <input type="text" id="price" name="price" readonly>
+
+                <label for="uid">Game UID (for MLBB, PUBG, Free Fire):</label>
+                <input type="text" id="uid" name="uid" placeholder="Enter UID">
+
+                <label for="gmail">Gmail ID:</label>
+                <input type="email" id="gmail" name="gmail" required placeholder="Enter Gmail">
+
+                <label for="screenshot">Payment Screenshot:</label>
+                <input type="file" id="screenshot" name="screenshot" accept="image/*" required>
+
+                <button type="submit">Submit</button>
+            </form>
+            <div id="feedback"></div>
+        </div>
     </div>
-  </section>
 
-  <!-- Register section -->
-  <section id="register" class="section register" aria-label="Register section">
-    <div class="wrap">
-      <h2 class="section-title">Register now</h2>
-      <p class="section-subtitle">Secure your slot with eSewa payment. Fair rules, pro vibes, zero excuses.</p>
-
-      <form id="registerForm" class="form-grid" autocomplete="off">
-        <div class="field">
-          <label for="ffname">Free Fire name</label>
-          <input type="text" id="ffname" placeholder="Enter your Free Fire name" required />
-        </div>
-        <div class="field">
-          <label for="uid">Free Fire UID</label>
-          <input type="text" id="uid" placeholder="Enter your UID (9–10 digits)" required />
-        </div>
-        <div class="field">
-          <label for="txid">eSewa transaction ID</label>
-          <input type="text" id="txid" placeholder="Enter your eSewa Transaction ID" required />
-        </div>
-
-        <div class="actions">
-          <button type="button" class="btn btn-secondary" id="showQR">Pay with eSewa</button>
-          <button type="submit" class="btn btn-primary">Submit registration</button>
-        </div>
-
-        <div class="tips">
-          <div class="tip">Include your Free Fire name in eSewa note</div>
-          <div class="tip">Make sure your UID is correct</div>
-          <div class="tip">Read the rules below before submitting</div>
-        </div>
-      </form>
-    </div>
-  </section>
-
-  <!-- Rules section -->
-  <section id="rules" class="section rules" aria-label="Tournament rules">
-    <div class="wrap">
-      <h2 class="section-title">Tournament rules</h2>
-      <p class="section-subtitle">Follow these rules for fair and competitive gameplay.</p>
-
-      <div class="rules-grid">
-        <article class="rule-card" data-reveal="up">
-          <div class="rule-header">
-            <div class="rule-icon">🛡️</div>
-            <div class="rule-tag tag-red">Permanent ban</div>
-          </div>
-          <h3 class="rule-title">No hacking or cheating</h3>
-          <p class="rule-desc">Strictly prohibited — instant disqualification.</p>
-        </article>
-
-        <article class="rule-card" data-reveal="up" data-delay="100">
-          <div class="rule-header">
-            <div class="rule-icon">🚫</div>
-            <div class="rule-tag tag-orange">Match disqualification</div>
-          </div>
-          <h3 class="rule-title">No vehicle usage</h3>
-          <p class="rule-desc">Only on-foot gameplay allowed in all matches.</p>
-        </article>
-
-        <article class="rule-card" data-reveal="up" data-delay="200">
-          <div class="rule-header">
-            <div class="rule-icon">❌</div>
-            <div class="rule-tag tag-orange">Match disqualification</div>
-          </div>
-          <h3 class="rule-title">No teaming</h3>
-          <p class="rule-desc">Solo gameplay only — no coordination with other players.</p>
-        </article>
-
-        <article class="rule-card" data-reveal="up" data-delay="300">
-          <div class="rule-header">
-            <div class="rule-icon">📱</div>
-            <div class="rule-tag tag-yellow">Account review</div>
-          </div>
-          <h3 class="rule-title">Fair device policy</h3>
-          <p class="rule-desc">No emulators or external controllers allowed.</p>
-        </article>
-
-        <article class="rule-card" data-reveal="up" data-delay="400">
-          <div class="rule-header">
-            <div class="rule-icon">🤝</div>
-            <div class="rule-tag tag-blue">Warning/Suspension</div>
-          </div>
-          <h3 class="rule-title">Respectful communication</h3>
-          <p class="rule-desc">No abusive language, harassment, or toxic behavior.</p>
-        </article>
-
-        <article class="rule-card" data-reveal="up" data-delay="500">
-          <div class="rule-header">
-            <div class="rule-icon">⏱️</div>
-            <div class="rule-tag tag-green">Match forfeit</div>
-          </div>
-          <h3 class="rule-title">Punctuality required</h3>
-          <p class="rule-desc">Be in lobbies before match time — no late entries.</p>
-        </article>
-      </div>
-
-      <div class="notice">
-        All participants must follow these rules strictly. Organizers may disqualify violators. Decisions by the organizing team are final and binding.
-      </div>
-    </div>
-  </section>
-
-  <!-- QR popup -->
-  <div id="qr-popup" class="qr-popup hidden" aria-hidden="true" role="dialog" aria-label="eSewa QR">
-    <div class="qr-content">
-      <h3>📱 Scan to pay with eSewa</h3>
-      <img src="qrcode.jpg" alt="eSewa QR code" class="qr-image" />
-      <button id="closeQR" class="btn btn-primary">Done</button>
-    </div>
-  </div>
-
-  <!-- Success overlay -->
-  <div id="success-overlay" class="success-overlay hidden" aria-hidden="true">
-    <div class="success-box">✅ Successfully Registered!</div>
-  </div>
-
-  <!-- Help popup trigger and popup -->
-  <button class="help-fab" id="helpFab" aria-label="Open help">?</button>
-  <div class="help-popup hidden" id="helpPopup" role="dialog" aria-label="Help & contact">
-    <div class="help-card">
-      <button class="help-close" id="helpClose" aria-label="Close help">✖</button>
-      <h3 class="help-title">Need help?</h3>
-      <p class="help-desc">Contact us on WhatsApp for quick support.</p>
-      <a class="btn btn-whatsapp" href="https://wa.me/9863429320" target="_blank" rel="noopener">WhatsApp: 9863429320</a>
-    </div>
-  </div>
-
-  <!-- Footer with NGL logo -->
-  <footer class="footer">
-    <img src="image.png" alt="Nepal Gaming League logo" class="footer-logo" />
-    <div class="footer-text">Nepal Gaming League • © 2025</div>
-  </footer>
-
-  <script src="script.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
+
+
