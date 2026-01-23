@@ -5,13 +5,38 @@ body {
     font-family: 'Rajdhani', sans-serif;
     margin: 0;
     padding: 0;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    color: #ffffff;
+    background: white;
+    color: #000000;
     overflow-x: hidden;
     position: relative;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
+    transition: background 0.3s ease, color 0.3s ease;
+}
+
+body.dark-theme {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+}
+
+body.light-theme {
+    background: white;
+    color: #000000;
+}
+
+body.dark-theme::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: radial-gradient(circle at 20% 80%, rgba(255, 255, 255, 0.1) 0%, transparent 50%),
+                      radial-gradient(circle at 80% 20%, rgba(255, 0, 150, 0.1) 0%, transparent 50%),
+                      radial-gradient(circle at 40% 40%, rgba(255, 255, 0, 0.1) 0%, transparent 50%);
+    pointer-events: none;
+    z-index: -1;
+    animation: particleFloat 20s ease-in-out infinite;
 }
 
 html {
@@ -20,20 +45,7 @@ html {
     scroll-behavior: smooth;
 }
 
-body::before {
-    content: '';
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-image: radial-gradient(circle at 20% 80%, rgba(0, 255, 255, 0.1) 0%, transparent 50%),
-                      radial-gradient(circle at 80% 20%, rgba(255, 0, 255, 0.1) 0%, transparent 50%),
-                      radial-gradient(circle at 40% 40%, rgba(255, 255, 0, 0.1) 0%, transparent 50%);
-    pointer-events: none;
-    z-index: -1;
-    animation: particleFloat 20s ease-in-out infinite;
-}
+
 
 @keyframes particleFloat {
     0%, 100% { transform: translateY(0px) rotate(0deg); }
@@ -43,13 +55,21 @@ body::before {
 header {
     text-align: center;
     padding: 60px 20px;
-    background: linear-gradient(135deg, rgba(0, 0, 0, 0.7) 0%, rgba(0, 255, 255, 0.1) 100%);
-    box-shadow: 0 8px 40px rgba(0, 255, 255, 0.4);
     position: relative;
     overflow: hidden;
 }
 
-header::before {
+body.light-theme header {
+    background: white;
+    box-shadow: 0 8px 40px rgba(0, 0, 0, 0.1);
+}
+
+body.dark-theme header {
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.7) 0%, rgba(0, 255, 255, 0.1) 100%);
+    box-shadow: 0 8px 40px rgba(0, 255, 255, 0.4);
+}
+
+body.dark-theme header::before {
     content: '';
     position: absolute;
     top: 0;
@@ -70,18 +90,19 @@ header h1 {
     font-family: 'Orbitron', monospace;
     font-size: 3em;
     margin: 0;
-    text-shadow: 0 0 20px #00ffff, 0 0 40px #00ffff, 0 0 60px #00ffff;
-    animation: neonPulse 2s ease-in-out infinite alternate;
+    color: #000000;
+    text-shadow: none;
 }
 
-@keyframes neonPulse {
-    from { text-shadow: 0 0 20px #00ffff, 0 0 40px #00ffff, 0 0 60px #00ffff; }
-    to { text-shadow: 0 0 10px #00ffff, 0 0 20px #00ffff, 0 0 30px #00ffff; }
+body.dark-theme header h1 {
+    text-shadow: 0 0 20px #00ffff, 0 0 40px #00ffff, 0 0 60px #00ffff;
+    animation: neonPulse 2s ease-in-out infinite alternate;
 }
 
 header p {
     font-size: 1.2em;
     margin: 10px 0 0;
+    color: #000000;
 }
 
 .nepal-flag {
@@ -118,6 +139,36 @@ header p {
 }
 
 /* Homepage */
+#homepage {
+    padding: 80px 20px;
+    position: relative;
+    overflow: hidden;
+}
+
+body.dark-theme #homepage {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+}
+
+#homepage::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at 25% 25%, rgba(255, 255, 255, 0.1) 0%, transparent 70%),
+                radial-gradient(circle at 75% 75%, rgba(0, 255, 255, 0.1) 0%, transparent 70%),
+                radial-gradient(circle at 50% 50%, rgba(255, 0, 255, 0.1) 0%, transparent 70%);
+    animation: homepageParticles 15s ease-in-out infinite;
+    pointer-events: none;
+    z-index: -1;
+}
+
+@keyframes homepageParticles {
+    0%, 100% { opacity: 0.3; transform: scale(1) rotate(0deg); }
+    50% { opacity: 0.8; transform: scale(1.2) rotate(180deg); }
+}
+
 .game-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -216,26 +267,14 @@ header p {
 .game-item h3 {
     margin: 15px 0 0;
     font-size: 1.5em;
-    color: #ffffff;
+    color: #000000;
     text-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
     position: relative;
     z-index: 1;
 }
 
-.game-item::after {
-    content: '⚡';
-    position: absolute;
-    bottom: 10px;
-    right: 10px;
-    font-size: 3em;
-    color: rgba(255, 255, 0, 1);
-    animation: spark 1s ease-in-out infinite;
-    text-shadow: 0 0 20px rgba(255, 255, 0, 1);
-}
-
-@keyframes spark {
-    0%, 100% { opacity: 0.7; transform: scale(1); }
-    50% { opacity: 1; transform: scale(1.2); }
+body.dark-theme .game-item h3 {
+    color: #000000;
 }
 
 /* Game Section */
