@@ -2,16 +2,41 @@
 @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;400;500;700&display=swap');
 
 body {
-    font-family: 'Rajdhani', sans-serif;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    color: #ffffff;
+    background: white;
+    color: #000000;
     overflow-x: hidden;
     position: relative;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
+    transition: background 0.3s ease, color 0.3s ease;
+}
+
+body.dark-theme {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+}
+
+body.light-theme {
+    background: white;
+    color: #000000;
+}
+
+body.dark-theme::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: radial-gradient(circle at 20% 80%, rgba(255, 255, 255, 0.1) 0%, transparent 50%),
+                      radial-gradient(circle at 80% 20%, rgba(255, 0, 150, 0.1) 0%, transparent 50%),
+                      radial-gradient(circle at 40% 40%, rgba(255, 255, 0, 0.1) 0%, transparent 50%);
+    pointer-events: none;
+    z-index: -1;
+    animation: particleFloat 20s ease-in-out infinite;
 }
 
 html {
@@ -20,20 +45,7 @@ html {
     scroll-behavior: smooth;
 }
 
-body::before {
-    content: '';
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-image: radial-gradient(circle at 20% 80%, rgba(0, 255, 255, 0.1) 0%, transparent 50%),
-                      radial-gradient(circle at 80% 20%, rgba(255, 0, 255, 0.1) 0%, transparent 50%),
-                      radial-gradient(circle at 40% 40%, rgba(255, 255, 0, 0.1) 0%, transparent 50%);
-    pointer-events: none;
-    z-index: -1;
-    animation: particleFloat 20s ease-in-out infinite;
-}
+
 
 @keyframes particleFloat {
     0%, 100% { transform: translateY(0px) rotate(0deg); }
@@ -42,14 +54,22 @@ body::before {
 
 header {
     text-align: center;
-    padding: 60px 20px;
-    background: linear-gradient(135deg, rgba(0, 0, 0, 0.7) 0%, rgba(0, 255, 255, 0.1) 100%);
-    box-shadow: 0 8px 40px rgba(0, 255, 255, 0.4);
+    padding: 15px 40px;
     position: relative;
     overflow: hidden;
 }
 
-header::before {
+body.light-theme header {
+    background: white;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+body.dark-theme header {
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.7) 0%, rgba(0, 255, 255, 0.1) 100%);
+    box-shadow: 0 4px 20px rgba(0, 255, 255, 0.4);
+}
+
+body.dark-theme header::before {
     content: '';
     position: absolute;
     top: 0;
@@ -68,27 +88,28 @@ header::before {
 
 header h1 {
     font-family: 'Orbitron', monospace;
-    font-size: 3em;
+    font-size: 2.2em;
     margin: 0;
-    text-shadow: 0 0 20px #00ffff, 0 0 40px #00ffff, 0 0 60px #00ffff;
+    color: #000000;
+    text-shadow: none;
+}
+
+body.dark-theme header h1 {
+    text-shadow: 0 0 15px #00ffff, 0 0 30px #00ffff, 0 0 45px #00ffff;
     animation: neonPulse 2s ease-in-out infinite alternate;
 }
 
-@keyframes neonPulse {
-    from { text-shadow: 0 0 20px #00ffff, 0 0 40px #00ffff, 0 0 60px #00ffff; }
-    to { text-shadow: 0 0 10px #00ffff, 0 0 20px #00ffff, 0 0 30px #00ffff; }
-}
-
 header p {
-    font-size: 1.2em;
-    margin: 10px 0 0;
+    font-size: 1em;
+    margin: 8px 0 0;
+    color: #000000;
 }
 
 .nepal-flag {
-    width: 60px;
+    width: 40px;
     height: auto;
     position: absolute;
-    top: 20px;
+    top: 10px;
     border-radius: 8px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
     transition: all 0.4s ease;
@@ -118,6 +139,287 @@ header p {
 }
 
 /* Homepage */
+#homepage {
+    padding: 0;
+    position: relative;
+    overflow: hidden;
+    background: black;
+    color: red;
+}
+
+/* Hero Section */
+.hero-section {
+    min-height: 80vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    background: url('https://images.unsplash.com/photo-1518709268805-4e9042af2176?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80') center/cover no-repeat;
+    overflow: hidden;
+}
+
+.hero-content {
+    text-align: center;
+    max-width: 800px;
+    z-index: 2;
+    position: relative;
+}
+
+.hero-title {
+    font-family: sans-serif;
+    font-size: 4rem;
+    font-weight: 900;
+    color: red;
+    margin-bottom: 20px;
+}
+
+.hero-subtitle {
+    font-size: 1.5rem;
+    color: white;
+    margin-bottom: 40px;
+    line-height: 1.6;
+    font-weight: 300;
+}
+
+.hero-features {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-bottom: 40px;
+    flex-wrap: wrap;
+}
+
+.scroll-arrow {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 2rem;
+    color: red;
+    animation: bounce 2s infinite;
+    cursor: pointer;
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateX(-50%) translateY(0);
+    }
+    40% {
+        transform: translateX(-50%) translateY(-10px);
+    }
+    60% {
+        transform: translateX(-50%) translateY(-5px);
+    }
+}
+
+.feature-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.feature-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(255, 255, 255, 0.2);
+}
+
+.feature-item i {
+    font-size: 2rem;
+    color: #00ffff;
+    text-shadow: 0 0 15px rgba(0, 255, 255, 0.5);
+}
+
+.feature-item span {
+    font-weight: 600;
+    color: #ffffff;
+    font-size: 0.9rem;
+}
+
+.hero-bg-elements {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    pointer-events: none;
+}
+
+.floating-shape {
+    position: absolute;
+    border-radius: 50%;
+    background: linear-gradient(45deg, rgba(255, 255, 255, 0.1), rgba(0, 255, 255, 0.1));
+    animation: floatShape 20s ease-in-out infinite;
+}
+
+.shape-1 {
+    width: 100px;
+    height: 100px;
+    top: 20%;
+    left: 10%;
+    animation-delay: 0s;
+}
+
+.shape-2 {
+    width: 150px;
+    height: 150px;
+    top: 60%;
+    right: 15%;
+    animation-delay: 5s;
+}
+
+.shape-3 {
+    width: 80px;
+    height: 80px;
+    bottom: 20%;
+    left: 70%;
+    animation-delay: 10s;
+}
+
+@keyframes floatShape {
+    0%, 100% { transform: translateY(0) rotate(0deg) scale(1); }
+    33% { transform: translateY(-20px) rotate(120deg) scale(1.1); }
+    66% { transform: translateY(10px) rotate(240deg) scale(0.9); }
+}
+
+/* Games Section */
+.games-section {
+    padding: 100px 20px;
+    background: white;
+    text-align: center;
+}
+
+.section-title {
+    font-family: 'Orbitron', monospace;
+    font-size: 3rem;
+    font-weight: 900;
+    color: #333;
+    margin-bottom: 15px;
+    text-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+
+.section-subtitle {
+    font-size: 1.2rem;
+    color: red;
+    margin-bottom: 60px;
+    font-weight: 300;
+}
+
+.game-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.game-item {
+    background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+    border-radius: 20px;
+    padding: 30px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    backdrop-filter: blur(20px);
+    border: 2px solid rgba(0, 255, 255, 0.2);
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    height: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.game-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(0, 255, 255, 0.4), rgba(255, 0, 255, 0.4), transparent);
+    transition: left 0.6s;
+    z-index: 1;
+}
+
+.game-item:hover::before {
+    left: 100%;
+}
+
+.game-item:hover {
+    transform: translateY(-15px) scale(1.05);
+    box-shadow: 0 25px 60px rgba(0, 255, 255, 0.3), 0 0 30px rgba(0, 255, 255, 0.2);
+    border-color: rgba(0, 255, 255, 0.6);
+}
+
+.game-icon {
+    margin-bottom: 20px;
+    z-index: 2;
+    position: relative;
+}
+
+.game-icon img {
+    width: 80px;
+    height: 80px;
+    border-radius: 15px;
+    transition: transform 0.3s ease;
+}
+
+.game-item:hover .game-icon img {
+    transform: scale(1.1);
+}
+
+.game-info {
+    z-index: 2;
+    position: relative;
+}
+
+.game-info h3 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 8px;
+    font-family: 'Rajdhani', sans-serif;
+}
+
+.game-info p {
+    font-size: 0.9rem;
+    color: #666;
+    font-weight: 500;
+    margin: 0;
+}
+
+.game-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(135deg, rgba(0, 255, 255, 0.9) 0%, rgba(255, 0, 255, 0.9) 100%);
+    padding: 15px;
+    transform: translateY(100%);
+    transition: transform 0.3s ease;
+    z-index: 3;
+}
+
+.game-item:hover .game-overlay {
+    transform: translateY(0);
+}
+
+.game-overlay span {
+    color: white;
+    font-weight: 600;
+    font-size: 1rem;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
 .game-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -189,6 +491,12 @@ header p {
     border-color: rgba(0, 255, 255, 0.8);
 }
 
+/* Dim Free Fire image for dark background */
+.game-item[data-game="freefire"] .game-icon img {
+    opacity: 0.6;
+    filter: brightness(0.8);
+}
+
 .game-item::before {
     content: '';
     position: absolute;
@@ -216,26 +524,14 @@ header p {
 .game-item h3 {
     margin: 15px 0 0;
     font-size: 1.5em;
-    color: #ffffff;
+    color: #000000;
     text-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
     position: relative;
     z-index: 1;
 }
 
-.game-item::after {
-    content: '⚡';
-    position: absolute;
-    bottom: 10px;
-    right: 10px;
-    font-size: 3em;
-    color: rgba(255, 255, 0, 1);
-    animation: spark 1s ease-in-out infinite;
-    text-shadow: 0 0 20px rgba(255, 255, 0, 1);
-}
-
-@keyframes spark {
-    0%, 100% { opacity: 0.7; transform: scale(1); }
-    50% { opacity: 1; transform: scale(1.2); }
+body.dark-theme .game-item h3 {
+    color: #000000;
 }
 
 /* Game Section */
@@ -556,19 +852,66 @@ footer::before {
     display: none;
 }
 
-/* Reviews Section - Highly Attractive Design */
+/* Reviews Section - Modern Sleek Design */
 #reviews {
-    padding: 80px 20px;
+    padding: 100px 20px;
     text-align: center;
     background:
-        linear-gradient(135deg, #ffe6f7 0%, #ffb3d9 50%, #ffe6f7 100%),
-        radial-gradient(ellipse at center, rgba(255, 105, 180, 0.1) 0%, transparent 70%);
-    margin: 60px 0;
+        linear-gradient(135deg, #0a0a0a 0%, #1a1a2a 25%, #16213e 50%, #0f0f23 75%, #0a0a0a 100%),
+        radial-gradient(circle at 30% 20%, rgba(138, 43, 226, 0.3) 0%, transparent 50%),
+        radial-gradient(circle at 70% 80%, rgba(30, 144, 255, 0.3) 0%, transparent 50%);
+    margin: 80px 0;
     position: relative;
     overflow: hidden;
-    min-height: 600px;
-    border-radius: 30px;
-    box-shadow: 0 20px 60px rgba(255, 105, 180, 0.3);
+    min-height: 700px;
+    border-radius: 50px;
+    box-shadow:
+        0 25px 80px rgba(138, 43, 226, 0.4),
+        0 0 100px rgba(30, 144, 255, 0.2),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+body.dark-theme #reviews {
+    background:
+        linear-gradient(135deg, #000000 0%, #111111 50%, #000000 100%),
+        radial-gradient(ellipse at center, rgba(0, 255, 255, 0.1) 0%, transparent 70%);
+    box-shadow: 0 20px 60px rgba(0, 255, 255, 0.3);
+}
+
+body.dark-theme #reviews h2 {
+    color: #00ffff;
+    text-shadow:
+        0 0 40px #00ffff,
+        0 0 80px #00ffff,
+        0 0 120px #00ffff,
+        0 0 160px #00ffff;
+}
+
+body.dark-theme .reviews-container {
+    background: rgba(0, 0, 0, 0.5);
+    border: 2px solid rgba(0, 255, 255, 0.4);
+    box-shadow: 0 20px 50px rgba(0, 255, 255, 0.3);
+}
+
+body.dark-theme .review-item {
+    background: rgba(0, 0, 0, 0.7);
+    box-shadow: 0 10px 30px rgba(0, 255, 255, 0.3);
+}
+
+body.dark-theme .review-item p {
+    color: #ffffff;
+}
+
+body.dark-theme .reviewer {
+    color: #00ffff;
+    text-shadow: 0 0 20px rgba(0, 255, 255, 0.8);
+}
+
+body.dark-theme #reviews .floating-element {
+    color: rgba(0, 255, 255, 0.4);
+    text-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
 }
 
 #reviews::before {
@@ -579,10 +922,10 @@ footer::before {
     right: 0;
     bottom: 0;
     background:
-        radial-gradient(circle at 20% 20%, rgba(255, 105, 180, 0.5) 0%, transparent 70%),
-        radial-gradient(circle at 80% 80%, rgba(255, 20, 147, 0.5) 0%, transparent 70%),
-        radial-gradient(circle at 40% 60%, rgba(255, 182, 193, 0.4) 0%, transparent 70%),
-        radial-gradient(circle at 60% 30%, rgba(255, 255, 0, 0.4) 0%, transparent 70%);
+        radial-gradient(circle at 20% 20%, rgba(0, 188, 212, 0.5) 0%, transparent 70%),
+        radial-gradient(circle at 80% 80%, rgba(0, 131, 143, 0.5) 0%, transparent 70%),
+        radial-gradient(circle at 40% 60%, rgba(0, 150, 136, 0.4) 0%, transparent 70%),
+        radial-gradient(circle at 60% 30%, rgba(0, 255, 255, 0.4) 0%, transparent 70%);
     animation: reviewParticles 15s ease-in-out infinite;
     pointer-events: none;
 }
@@ -601,35 +944,46 @@ footer::before {
 
 #reviews h2 {
     font-family: 'Orbitron', monospace;
-    font-size: 3.5em;
-    margin-bottom: 60px;
+    font-size: 4em;
+    margin-bottom: 80px;
     text-shadow:
-        0 0 40px #ff69b4,
-        0 0 80px #ff69b4,
-        0 0 120px #ff69b4,
-        0 0 160px #ff69b4;
-    animation: titleGlow 4s ease-in-out infinite alternate;
+        0 0 50px #8a2be2,
+        0 0 100px #8a2be2,
+        0 0 150px #8a2be2,
+        0 0 200px #8a2be2;
+    animation: titleGlow 5s ease-in-out infinite alternate;
     position: relative;
     z-index: 3;
-    color: #ff1493;
-    letter-spacing: 2px;
+    color: #ffffff;
+    letter-spacing: 3px;
     font-weight: 900;
+    background: linear-gradient(45deg, #8a2be2, #1e90ff, #ff1493, #00ffff);
+    background-size: 400% 400%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: gradientText 8s ease infinite;
+}
+
+@keyframes gradientText {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
 }
 
 @keyframes titleGlow {
     from {
         text-shadow:
-            0 0 40px #ff69b4,
-            0 0 80px #ff69b4,
-            0 0 120px #ff69b4,
-            0 0 160px #ff69b4;
+            0 0 40px #00ffff,
+            0 0 80px #00ffff,
+            0 0 120px #00ffff,
+            0 0 160px #00ffff;
     }
     to {
         text-shadow:
-            0 0 20px #ff69b4,
-            0 0 40px #ff69b4,
-            0 0 60px #ff69b4,
-            0 0 80px #ff69b4;
+            0 0 20px #00ffff,
+            0 0 40px #00ffff,
+            0 0 60px #00ffff,
+            0 0 80px #00ffff;
     }
 }
 
@@ -637,19 +991,28 @@ footer::before {
     display: flex;
     flex-direction: column;
     overflow: hidden;
-    max-width: 1200px;
+    max-width: 1400px;
     margin: 0 auto;
-    background: rgba(255, 255, 255, 0.15);
-    border-radius: 25px;
-    backdrop-filter: blur(15px);
-    padding: 30px;
-    border: 2px solid rgba(255, 105, 180, 0.4);
-    box-shadow: 0 20px 50px rgba(255, 105, 180, 0.3);
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 40px;
+    backdrop-filter: blur(25px);
+    padding: 50px;
+    border: 2px solid rgba(138, 43, 226, 0.3);
+    box-shadow:
+        0 30px 80px rgba(138, 43, 226, 0.2),
+        0 0 120px rgba(30, 144, 255, 0.1),
+        inset 0 1px 0 rgba(255, 255, 255, 0.2);
     position: relative;
     z-index: 3;
-    height: 400px;
+    height: 500px;
     justify-content: center;
     align-items: center;
+    animation: containerGlow 10s ease-in-out infinite alternate;
+}
+
+@keyframes containerGlow {
+    0% { box-shadow: 0 30px 80px rgba(138, 43, 226, 0.2), 0 0 120px rgba(30, 144, 255, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.2); }
+    100% { box-shadow: 0 40px 100px rgba(138, 43, 226, 0.4), 0 0 150px rgba(30, 144, 255, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.3); }
 }
 
 .reviews-container::before {
@@ -659,7 +1022,7 @@ footer::before {
     left: -4px;
     right: -4px;
     bottom: -4px;
-    background: linear-gradient(45deg, #ff69b4, #ff1493, #ffb3d9, #ff69b4, #ffff00, #ff69b4);
+    background: linear-gradient(45deg, #8a2be2, #1e90ff, #00ffff, #8a2be2, #ff1493, #8a2be2);
     background-size: 600% 600%;
     border-radius: 44px;
     z-index: -1;
@@ -676,7 +1039,7 @@ footer::before {
     background: rgba(255, 255, 255, 0.2);
     padding: 20px;
     border-radius: 15px;
-    box-shadow: 0 10px 30px rgba(255, 105, 180, 0.3);
+    box-shadow: 0 10px 30px rgba(0, 188, 212, 0.3);
     transition: all 0.5s ease;
     width: 100%;
     max-width: 500px;
@@ -714,6 +1077,13 @@ footer::before {
         0 40px 100px rgba(255, 105, 180, 0.6),
         0 0 120px rgba(255, 105, 180, 0.4),
         inset 0 1px 0 rgba(255, 255, 255, 0.6);
+    animation: bounceIn 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+@keyframes bounceIn {
+    0% { transform: translateY(-15px) scale(1.03) rotateX(2deg) translateZ(0); }
+    50% { transform: translateY(-25px) scale(1.08) rotateX(4deg) translateZ(10px); }
+    100% { transform: translateY(-15px) scale(1.03) rotateX(2deg) translateZ(0); }
 }
 
 .review-stars {
@@ -749,7 +1119,7 @@ footer::before {
     font-size: 1.2em;
     margin-bottom: 20px;
     line-height: 1.6;
-    color: #d63384;
+    color: #00838f;
     position: relative;
     z-index: 2;
     font-style: italic;
@@ -777,7 +1147,7 @@ footer::before {
 .review-item p::after {
     content: '"';
     font-size: 4em;
-    color: #ff1493;
+    color: #00838f;
     position: absolute;
     bottom: -45px;
     right: -30px;
@@ -787,10 +1157,10 @@ footer::before {
 }
 
 .reviewer {
-    font-weight: bold;
-    color: #ff1493;
+    font-weight: 900;
+    color: #00838f;
     font-size: 1.5em;
-    text-shadow: 0 0 20px rgba(255, 105, 180, 0.8);
+    text-shadow: 0 0 20px rgba(0, 188, 212, 0.8);
     position: relative;
     z-index: 2;
     text-align: center;
@@ -814,11 +1184,61 @@ footer::before {
 #reviews .floating-element {
     position: absolute;
     font-size: 2em;
-    color: rgba(255, 105, 180, 0.4);
+    color: rgba(0, 188, 212, 0.4);
     animation: floatRandom 25s ease-in-out infinite;
     pointer-events: none;
     z-index: 2;
-    text-shadow: 0 0 10px rgba(255, 105, 180, 0.5);
+    text-shadow: 0 0 10px rgba(0, 188, 212, 0.5);
+}
+
+/* Advanced Particle Effects */
+.review-particle {
+    position: absolute;
+    pointer-events: none;
+    z-index: 4;
+    animation: particleFloat 8s ease-in-out infinite;
+    font-size: 1.5em;
+    opacity: 0.7;
+}
+
+.sparkle {
+    color: #ffd700;
+    text-shadow: 0 0 10px #ffd700, 0 0 20px #ffd700;
+    animation: sparkleTwinkle 2s ease-in-out infinite alternate;
+}
+
+.heart-particle {
+    color: #ff69b4;
+    text-shadow: 0 0 8px #ff69b4;
+    animation: heartFloat 6s ease-in-out infinite;
+}
+
+.star-particle {
+    color: #ffff00;
+    text-shadow: 0 0 12px #ffff00;
+    animation: starShine 3s ease-in-out infinite alternate;
+}
+
+@keyframes particleFloat {
+    0%, 100% { transform: translateY(0) rotate(0deg) scale(1); opacity: 0.3; }
+    25% { transform: translateY(-20px) rotate(90deg) scale(1.2); opacity: 0.8; }
+    50% { transform: translateY(-40px) rotate(180deg) scale(0.8); opacity: 0.6; }
+    75% { transform: translateY(-20px) rotate(270deg) scale(1.1); opacity: 0.9; }
+}
+
+@keyframes sparkleTwinkle {
+    0% { transform: scale(1) rotate(0deg); opacity: 0.5; }
+    100% { transform: scale(1.5) rotate(180deg); opacity: 1; }
+}
+
+@keyframes heartFloat {
+    0%, 100% { transform: translateY(0) scale(1); }
+    50% { transform: translateY(-15px) scale(1.3); }
+}
+
+@keyframes starShine {
+    0% { transform: scale(1) rotate(0deg); opacity: 0.6; }
+    100% { transform: scale(1.4) rotate(360deg); opacity: 1; }
 }
 
 #reviews .floating-element:nth-child(1) { top: 15%; left: 15%; animation-delay: 0s; }
@@ -1128,3 +1548,4 @@ footer::before {
 #homepage, #game-section, #reviews, #support-care {
     transition: opacity 0.3s ease-in-out;
 }
+ 
