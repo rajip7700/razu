@@ -104,6 +104,20 @@ buyForm.addEventListener('submit', handleFormSubmit);
 
 supportForm.addEventListener('submit', handleSupportFormSubmit);
 
+        loadingScreen.style.opacity = '0';
+        setTimeout(() => {
+            loadingScreen.style.display = 'none';
+        }, 500);
+    }, 100); // Show loading for 0.1 seconds
+>>>>>>> b718fa38f0d386c69f5b26020f5406bc5496ab10
+
+    // Theme toggle functionality
+    const themeToggle = document.getElementById('theme-toggle');
+    const body = document.body;
+
+    // Set default theme to light
+    body.classList.add('light-theme');
+ 
 // Loading screen fade out
 document.addEventListener('DOMContentLoaded', () => {
     setTimeout(() => {
@@ -142,6 +156,74 @@ document.addEventListener('DOMContentLoaded', () => {
             body.classList.add('light-theme');
             themeToggle.textContent = '🌙 Dark';
         }
+    }
+});
+=======
+        loadingScreen.style.opacity = '0';
+        setTimeout(() => {
+            loadingScreen.style.display = 'none';
+        }, 500);
+    }, 100); // Show loading for 0.1 seconds
+>>>>>>> b718fa38f0d386c69f5b26020f5406bc5496ab10
+
+    // Theme toggle functionality
+    const themeToggle = document.getElementById('theme-toggle');
+    const body = document.body;
+
+    // Set default theme to light
+    body.classList.add('light-theme');
+
+<<<<<<< HEAD
+    if (themeToggle) {
+        themeToggle.addEventListener('click', () => {
+            if (body.classList.contains('light-theme')) {
+                body.classList.remove('light-theme');
+                body.classList.add('dark-theme');
+                themeToggle.textContent = '☀️ Light';
+                localStorage.setItem('theme', 'dark');
+            } else {
+                body.classList.remove('dark-theme');
+                body.classList.add('light-theme');
+                themeToggle.textContent = '🌙 Dark';
+                localStorage.setItem('theme', 'light');
+            }
+        });
+
+        // Load saved theme
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme === 'dark') {
+            body.classList.remove('light-theme');
+            body.classList.add('dark-theme');
+            themeToggle.textContent = '☀️ Light';
+        } else {
+            body.classList.add('light-theme');
+            themeToggle.textContent = '🌙 Dark';
+        }
+=======
+    themeToggle.addEventListener('click', () => {
+        if (body.classList.contains('light-theme')) {
+            body.classList.remove('light-theme');
+            body.classList.add('dark-theme');
+            themeToggle.textContent = '☀️ Light';
+            localStorage.setItem('theme', 'dark');
+        } else {
+            body.classList.remove('dark-theme');
+            body.classList.add('light-theme');
+            themeToggle.textContent = '🌙 Dark';
+            localStorage.setItem('theme', 'light');
+        }
+    });
+
+    // Load saved theme
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme === 'dark') {
+        body.classList.remove('light-theme');
+        body.classList.add('dark-theme');
+        themeToggle.textContent = '☀️ Light';
+    } else {
+        body.classList.add('light-theme');
+        themeToggle.textContent = '🌙 Dark';
+>>>>>>> b718fa38f0d386c69f5b26020f5406bc5496ab10
     }
 });
 
@@ -473,9 +555,9 @@ const reviewers = [
     "Suraj Acharya"
 ];
 
-// Generate all 100 reviews
+// Generate only 10 reviews for smaller size
 reviewsContainer.innerHTML = '';
-for (let i = 0; i < 100; i++) {
+for (let i = 0; i < 10; i++) {
     const reviewItem = document.createElement('div');
     reviewItem.className = 'review-item';
     const stars = '★★★★★'.split('').map(star => `<span class="star">${star}</span>`).join('');
@@ -503,30 +585,30 @@ function showNextReview() {
             }, 500); // Match transition duration
         }
     });
-    currentReviewIndex = (currentReviewIndex + 1) % 100;
+    currentReviewIndex = (currentReviewIndex + 1) % 10;
 }
 
 showNextReview(); // Show first review
 setInterval(showNextReview, 1500); // Change review every 1.5 seconds for faster, more attractive cycling
 
-// Advanced Particle Effects for Reviews
-function createReviewParticles() {
-    const reviewsSection = document.getElementById('reviews');
-    const particles = ['✨', '💖', '⭐', '🌟', '💕', '🎉', '🌈', '💫'];
+// Advanced Particle Effects for Reviews - Removed to reduce visual clutter
+// function createReviewParticles() {
+//     const reviewsSection = document.getElementById('reviews');
+//     const particles = ['✨', '💖', '⭐', '🌟', '💕', '🎉', '🌈', '💫'];
 
-    for (let i = 0; i < 20; i++) {
-        const particle = document.createElement('div');
-        particle.className = 'review-particle';
-        particle.textContent = particles[Math.floor(Math.random() * particles.length)];
-        particle.style.left = Math.random() * 100 + '%';
-        particle.style.top = Math.random() * 100 + '%';
-        particle.style.animationDelay = Math.random() * 8 + 's';
-        particle.style.fontSize = (Math.random() * 1.5 + 1) + 'em';
-        reviewsSection.appendChild(particle);
-    }
-}
+//     for (let i = 0; i < 20; i++) {
+//         const particle = document.createElement('div');
+//         particle.className = 'review-particle';
+//         particle.textContent = particles[Math.floor(Math.random() * particles.length)];
+//         particle.style.left = Math.random() * 100 + '%';
+//         particle.style.top = Math.random() * 100 + '%';
+//         particle.style.animationDelay = Math.random() * 8 + 's';
+//         particle.style.fontSize = (Math.random() * 1.5 + 1) + 'em';
+//         reviewsSection.appendChild(particle);
+//     }
+// }
 
-createReviewParticles();
+// createReviewParticles();
 
 // 3D Tilt Effect for Reviews
 function addTiltEffect() {
@@ -777,4 +859,8 @@ async function handleSupportFormSubmit(e) {
 }
 
  
+<<<<<<< HEAD
  
+=======
+  
+>>>>>>> b718fa38f0d386c69f5b26020f5406bc5496ab10
