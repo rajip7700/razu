@@ -3,18 +3,18 @@ const games = {
     mobilelegends: {
         name: 'Mobile Legends Diamonds',
         prices: [
-            { amount: '55', price: 'Rs.160' },
-            { amount: '86', price: 'Rs.215' },
-            { amount: '172', price: 'Rs.400' },
-            { amount: '257', price: 'Rs.600' },
-            { amount: '344', price: 'Rs.860' },
-            { amount: '429', price: 'Rs.1075' },
-            { amount: '514', price: 'Rs.1200' },
-            { amount: '706', price: 'Rs.1500' },
-            { amount: '878', price: 'Rs.2195' },
-            { amount: '963', price: 'Rs.2408' },
-            { amount: '1050', price: 'Rs.2625' },
-            { amount: '1412', price: 'Rs.2950' },
+            { amount: '55 💎', price: 'Rs.160' },
+            { amount: '86 💎', price: 'Rs.215' },
+            { amount: '172 💎', price: 'Rs.400' },
+            { amount: '257 💎', price: 'Rs.600' },
+            { amount: '344 💎', price: 'Rs.860' },
+            { amount: '429 💎', price: 'Rs.1075' },
+            { amount: '514 💎', price: 'Rs.1200' },
+            { amount: '706 💎', price: 'Rs.1500' },
+            { amount: '878 💎', price: 'Rs.2195' },
+            { amount: '963 💎', price: 'Rs.2408' },
+            { amount: '1050 💎', price: 'Rs.2625' },
+            { amount: '1412 💎', price: 'Rs.2950' },
             { amount: 'Weekly Pass', price: 'Rs.215' },
             { amount: 'Monthly Pass', price: 'Rs.645' }
         ]
@@ -22,37 +22,37 @@ const games = {
     roblox: {
         name: 'Roblox Robux',
         prices: [
-            { amount: '300', price: 'Rs.700' },
-            { amount: '400', price: 'Rs.1000' },
-            { amount: '500', price: 'Rs.1250' },
-            { amount: '800', price: 'Rs.2000' },
-            { amount: '1000', price: 'Rs.2500' },
-            { amount: '1500', price: 'Rs.3750' },
-            { amount: '2000', price: 'Rs.5000' },
-            { amount: '3000', price: 'Rs.5500' }
+            { amount: '300 Robux', price: 'Rs.700' },
+            { amount: '400 Robux', price: 'Rs.1000' },
+            { amount: '500 Robux', price: 'Rs.1250' },
+            { amount: '800 Robux', price: 'Rs.2000' },
+            { amount: '1000 Robux', price: 'Rs.2500' },
+            { amount: '1500 Robux', price: 'Rs.3750' },
+            { amount: '2000 Robux', price: 'Rs.5000' },
+            { amount: '3000 Robux', price: 'Rs.5500' }
         ]
     },
     freefire: {
         name: 'Free Fire Diamonds',
         prices: [
-            { amount: '50', price: 'Rs.65' },
-            { amount: '115', price: 'Rs.105' },
-            { amount: '240', price: 'Rs.200' },
-            { amount: '355', price: 'Rs.300' },
-            { amount: '480', price: 'Rs.400' },
-            { amount: '610', price: 'Rs.500' },
-            { amount: '725', price: 'Rs.610' },
-            { amount: '850', price: 'Rs.720' },
-            { amount: '965', price: 'Rs.830' },
-            { amount: '1090', price: 'Rs.910' },
-            { amount: '1240', price: 'Rs.1000' },
-            { amount: '1480', price: 'Rs.1220' },
-            { amount: '1720', price: 'Rs.1420' },
-            { amount: '1850', price: 'Rs.1500' },
-            { amount: '2090', price: 'Rs.1710' },
-            { amount: '2530', price: 'Rs.2000' },
-            { amount: '5060', price: 'Rs.4000' },
-            { amount: '10120', price: 'Rs.8000' },
+            { amount: '50 💎', price: 'Rs.65' },
+            { amount: '115 💎', price: 'Rs.105' },
+            { amount: '240 💎', price: 'Rs.200' },
+            { amount: '355 💎', price: 'Rs.300' },
+            { amount: '480 💎', price: 'Rs.400' },
+            { amount: '610 💎', price: 'Rs.500' },
+            { amount: '725 💎', price: 'Rs.610' },
+            { amount: '850 💎', price: 'Rs.720' },
+            { amount: '965 💎', price: 'Rs.830' },
+            { amount: '1090 💎', price: 'Rs.910' },
+            { amount: '1240 💎', price: 'Rs.1000' },
+            { amount: '1480 💎', price: 'Rs.1220' },
+            { amount: '1720 💎', price: 'Rs.1420' },
+            { amount: '1850 💎', price: 'Rs.1500' },
+            { amount: '2090 💎', price: 'Rs.1710' },
+            { amount: '2530 💎', price: 'Rs.2000' },
+            { amount: '5060 💎', price: 'Rs.4000' },
+            { amount: '10120 💎', price: 'Rs.8000' },
             { amount: 'Monthly', price: 'Rs.995' },
             { amount: 'Elite Weekly', price: 'Rs.75' }
         ]
@@ -626,6 +626,9 @@ function showGameSection(gameKey) {
     document.getElementById('support-care').classList.add('hidden');
     document.querySelector('footer').classList.add('hidden');
     gameSection.classList.remove('hidden');
+
+    // Scroll to the top of the price list to show from first price
+    priceList.scrollIntoView({ behavior: 'smooth', block: 'start' });
 }
 
 function showDiamondList() {
@@ -759,6 +762,12 @@ function openBuyModal(gameKey, amount, price) {
         // Hide QR section for Netflix
         document.querySelector('.qr-section').style.display = 'none';
 
+        // Make screenshot not required for Netflix
+        document.getElementById('screenshot').required = false;
+
+        // Make UID not required for Netflix
+        document.getElementById('uid').required = false;
+
         // Change modal title
         document.querySelector('#buy-modal h3').textContent = 'Get Netflix Subscription';
     } else {
@@ -829,17 +838,23 @@ function closeModal() {
 
 async function handleFormSubmit(e) {
     e.preventDefault();
+    console.log('handleFormSubmit called');
+    alert('Form is being submitted Now after a minutes you will get id and password of netflix account via email THANK YOU😍👍 .');
 
     const formData = new FormData(buyForm);
     const gameName = formData.get('game-name');
+    console.log('Game name:', gameName);
 
     if (gameName === 'Netflix') {
+        console.log('Processing Netflix form');
         // Handle Netflix subscription
         const data = {
             name: formData.get('name'),
             gmail: formData.get('gmail'),
             phone: formData.get('phone')
         };
+
+        console.log('Submitting Netflix form with data:', data);
 
         // Basic validation for Netflix
         if (!data.name || !data.gmail || !data.phone) {
@@ -866,6 +881,7 @@ async function handleFormSubmit(e) {
         };
 
         try {
+            console.log('Sending to webhook:', webhookURL);
             const response = await fetch(webhookURL, {
                 method: 'POST',
                 headers: {
@@ -874,15 +890,20 @@ async function handleFormSubmit(e) {
                 body: JSON.stringify(embed)
             });
 
+            console.log('Response status:', response.status);
+            console.log('Response ok:', response.ok);
+
             if (response.ok) {
-                feedback.textContent = 'Netflix subscription request submitted successfully! We will contact you soon.';
+                feedback.textContent = 'Thank you for your order. We will contact you soon.';
                 feedback.style.color = 'green';
                 buyForm.reset();
                 setTimeout(closeModal, 3000);
             } else {
+                console.error('Webhook response not ok:', response.status, response.statusText);
                 throw new Error('Failed to submit');
             }
         } catch (error) {
+            console.error('Error submitting Netflix form:', error);
             feedback.textContent = 'Failed to submit request. Please try again.';
             feedback.style.color = 'red';
         }
