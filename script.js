@@ -161,7 +161,7 @@ function createParticles() {
     }
 }
 
-createParticles();
+
 
 // Array of different review texts
 const reviewTexts = [
@@ -372,210 +372,106 @@ const reviewTexts = [
 
 // Array of reviewers
 const reviewers = [
-    "PANEL USER",
-    "GAME MASTER",
-    "PRO PLAYER",
-    "MOBILE GAMER",
-    "NIGHT OWL",
-    "GAMING PRO",
-    "ROBLOX FAN",
-    "FF PLAYER",
-    "BATTLE ROYAL",
-    "MOBILE LEGEND",
-    "GAMING ADDICT",
-    "WEEKLY GAMER",
-    "SAFE PLAYER",
-    "MONTHLY SUB",
-    "SUPPORTED USER",
-    "ROBUX BUYER",
-    "DIAMOND HUNTER",
-    "UC BUYER",
-    "ML PLAYER",
-    "REGULAR CUSTOMER",
-    "ELITE GAMER",
-    "TRUSTED USER",
-    "SPEED USER",
-    "GAMING EXPERT",
-    "ROBLOX PRO",
-    "FF EXPERT",
-    "PUBG PLAYER",
-    "LEGEND PLAYER",
-    "HAPPY GAMER",
-    "WEEKLY BUYER",
-    "SECURE USER",
-    "MONTHLY GAMER",
-    "SUPPORT FAN",
-    "ROBUX FAN",
-    "DIAMOND FAN",
-    "UC FAN",
-    "ML FAN",
-    "REGULAR FAN",
-    "ELITE FAN",
-    "TRUST FAN",
-    "SPEED FAN",
-    "EXPERT FAN",
-    "ROBLOX FAN 2",
-    "FF FAN 2",
-    "PUBG FAN 2",
-    "LEGEND FAN 2",
-    "HAPPY FAN 2",
-    "WEEKLY FAN 2",
-    "SECURE FAN 2",
-    "MONTHLY FAN 2",
-    "SUPPORT FAN 2",
-    "ROBUX FAN 2",
-    "DIAMOND FAN 2",
-    "UC FAN 2",
-    "ML FAN 2",
-    "REGULAR FAN 2",
-    "ELITE FAN 2",
-    "TRUST FAN 2",
-    "SPEED FAN 2",
-    "EXPERT FAN 2",
-    "ROBLOX FAN 3",
-    "FF FAN 3",
-    "PUBG FAN 3",
-    "LEGEND FAN 3",
-    "HAPPY FAN 3",
-    "WEEKLY FAN 3",
-    "SECURE FAN 3",
-    "MONTHLY FAN 3",
-    "SUPPORT FAN 3",
-    "ROBUX FAN 3",
-    "DIAMOND FAN 3",
-    "UC FAN 3",
-    "ML FAN 3",
-    "REGULAR FAN 3",
-    "ELITE FAN 3",
-    "TRUST FAN 3",
-    "SPEED FAN 3",
-    "EXPERT FAN 3",
-    "ROBLOX FAN 4",
-    "FF FAN 4",
-    "PUBG FAN 4",
-    "LEGEND FAN 4",
-    "HAPPY FAN 4",
-    "WEEKLY FAN 4",
-    "SECURE FAN 4",
-    "MONTHLY FAN 4",
-    "SUPPORT FAN 4",
-    "ROBUX FAN 4",
-    "DIAMOND FAN 4",
-    "UC FAN 4",
-    "ML FAN 4",
-    "REGULAR FAN 4",
-    "ELITE FAN 4",
-    "TRUST FAN 4",
-    "SPEED FAN 4",
-    "EXPERT FAN 4",
-    "ROBUX FAN 5",
-    "FF FAN 5",
-    "PUBG FAN 5",
-    "LEGEND FAN 5",
-    "HAPPY FAN 5",
-    "WEEKLY FAN 5",
-    "SECURE FAN 5",
-    "MONTHLY FAN 5",
-    "SUPPORT FAN 5",
-    "ROBUX FAN 6",
-    "DIAMOND FAN 5",
-    "UC FAN 5",
-    "ML FAN 5",
-    "REGULAR FAN 5",
-    "ELITE FAN 5",
-    "TRUST FAN 5",
-    "SPEED FAN 5",
-    "EXPERT FAN 5",
-    "ROBUX FAN 7",
-    "FF FAN 6",
-    "PUBG FAN 6",
-    "LEGEND FAN 6",
-    "HAPPY FAN 6",
-    "WEEKLY FAN 6",
-    "SECURE FAN 6",
-    "MONTHLY FAN 6",
-    "SUPPORT FAN 6",
-    "ROBUX FAN 8",
-    "DIAMOND FAN 6",
-    "UC FAN 6",
-    "ML FAN 6",
-    "REGULAR FAN 6",
-    "ELITE FAN 6",
-    "TRUST FAN 6",
-    "SPEED FAN 6",
-    "EXPERT FAN 6",
-    "ROBUX FAN 9",
-    "FF FAN 7",
-    "PUBG FAN 7",
-    "LEGEND FAN 7",
-    "HAPPY FAN 7",
-    "WEEKLY FAN 7",
-    "SECURE FAN 7",
-    "MONTHLY FAN 7",
-    "SUPPORT FAN 7",
-    "ROBUX FAN 10",
-    "DIAMOND FAN 7",
-    "UC FAN 7",
-    "ML FAN 7",
-    "REGULAR FAN 7",
-    "ELITE FAN 7",
-    "TRUST FAN 7",
-    "SPEED FAN 7",
-    "EXPERT FAN 7",
-    "ROBUX FAN 11",
-    "FF FAN 8",
-    "PUBG FAN 8",
-    "LEGEND FAN 8",
-    "HAPPY FAN 8",
-    "WEEKLY FAN 8",
-    "SECURE FAN 8",
-    "MONTHLY FAN 8",
-    "SUPPORT FAN 8",
-    "ROBUX FAN 12",
-    "DIAMOND FAN 8",
-    "UC FAN 8",
-    "ML FAN 8",
-    "REGULAR FAN 8",
-    "ELITE FAN 8",
-    "TRUST FAN 8",
-    "SPEED FAN 8",
-    "EXPERT FAN 8",
-    "ROBUX FAN 13",
-    "FF FAN 9",
-    "PUBG FAN 9",
-    "LEGEND FAN 9",
-    "HAPPY FAN 9",
-    "WEEKLY FAN 9",
-    "SECURE FAN 9",
-    "MONTHLY FAN 9",
-    "SUPPORT FAN 9",
-    "ROBUX FAN 14",
-    "DIAMOND FAN 9",
-    "UC FAN 9",
-    "ML FAN 9",
-    "REGULAR FAN 9",
-    "ELITE FAN 9",
-    "TRUST FAN 9",
-    "SPEED FAN 9",
-    "EXPERT FAN 9",
-    "ROBUX FAN 15",
-    "FF FAN 10",
-    "PUBG FAN 10",
-    "LEGEND FAN 10",
-    "HAPPY FAN 10",
-    "WEEKLY FAN 10",
-    "SECURE FAN 10",
-    "MONTHLY FAN 10",
-    "SUPPORT FAN 10",
-    "ROBUX FAN 16",
-    "DIAMOND FAN 10",
-    "UC FAN 10",
-    "ML FAN 10",
-    "REGULAR FAN 10",
-    "ELITE FAN 10",
-    "TRUST FAN 10",
-    "SPEED FAN 10",
-    "EXPERT FAN 10"
+    "CYBER NINJA",
+    "Ram Sharma",
+    "PIXEL WARRIOR",
+    "Sita Thapa",
+    "DIGITAL DEMON",
+    "Krishna Gurung",
+    "VIRTUAL VAMPIRE",
+    "Laxmi Rai",
+    "CODE CRUSADER",
+    "Bishnu Tamang",
+    "BYTE BUSTER",
+    "Gita Lama",
+    "GAMING GHOST",
+    "Hari Bhattarai",
+    "ELECTRONIC ELF",
+    "Sunita Adhikari",
+    "NETWORK NOMAD",
+    "Narayan Joshi",
+    "DATA DRAGON",
+    "Maya Pandey",
+    "CLOUD CRUSHER",
+    "Dipak Karki",
+    "ALGORITHM ASSASSIN",
+    "Anjali Shrestha",
+    "FIREWALL FIGHTER",
+    "Prakash Magar",
+    "BINARY BEAST",
+    "Kumari Bhandari",
+    "SERVER SLAYER",
+    "Suresh Khadka",
+    "CACHE CRUSADER",
+    "Rekha Poudel",
+    "ROUTER RANGER",
+    "Mohan Acharya",
+    "PACKET PIRATE",
+    "Sarita Dhakal",
+    "HACKER HERO",
+    "Ramesh Thakuri",
+    "VIRUS VANQUISHER",
+    "Nirmala Basnet",
+    "MALWARE MASTER",
+    "Bikash Rana",
+    "ENCRYPTION EXPERT",
+    "Poonam Ghimire",
+    "DEBUGGING DEMON",
+    "Dinesh Maharjan",
+    "SCRIPT SLAYER",
+    "Manju Pokharel",
+    "KERNEL KNIGHT",
+    "Santosh Tiwari",
+    "BOOTLOADER BOSS",
+    "Kavita Rijal",
+    "MEMORY MONSTER",
+    "Ganesh Bhatta",
+    "GPU GUARDIAN",
+    "Shanti Khanal",
+    "CPU CRUSADER",
+    "Rajendra Shah",
+    "RAM RANGER",
+    "Indira Sapkota",
+    "SSD SLAYER",
+    "Umesh Neupane",
+    "HDD HERO",
+    "Binita Dahal",
+    "OVERCLOCK ORACLE",
+    "Chandra Paudel",
+    "BIOS BEAST",
+    "Nisha Gautam",
+    "FIRMWARE FIGHTER",
+    "Lokendra Thapa",
+    "DRIVER DEMON",
+    "Sabina Lama",
+    "PATCH PIRATE",
+    "Yogesh Gurung",
+    "UPDATE UNICORN",
+    "Anita Rai",
+    "BACKUP BOSS",
+    "Suman Tamang",
+    "RESTORE RANGER",
+    "Kiran Bhattarai",
+    "SYNC SLAYER",
+    "Rina Adhikari",
+    "CLOUD CRUSADER",
+    "Arjun Joshi",
+    "STREAMING STORM",
+    "Priya Pandey",
+    "DOWNLOAD DEMON",
+    "Nabin Karki",
+    "UPLOAD UNICORN",
+    "Saraswati Shrestha",
+    "LATENCY LORD",
+    "Madhav Magar",
+    "PING PIRATE",
+    "Kusum Bhandari",
+    "BANDWIDTH BEAST",
+    "Hemant Khadka",
+    "THROUGHPUT THIEF",
+    "Lila Poudel",
+    "CONNECTION CRUSADER",
+    "Suraj Acharya"
 ];
 
 // Generate all 100 reviews
@@ -613,6 +509,89 @@ function showNextReview() {
 
 showNextReview(); // Show first review
 setInterval(showNextReview, 1500); // Change review every 1.5 seconds for faster, more attractive cycling
+
+// Advanced Particle Effects for Reviews
+function createReviewParticles() {
+    const reviewsSection = document.getElementById('reviews');
+    const particles = ['✨', '💖', '⭐', '🌟', '💕', '🎉', '🌈', '💫'];
+
+    for (let i = 0; i < 20; i++) {
+        const particle = document.createElement('div');
+        particle.className = 'review-particle';
+        particle.textContent = particles[Math.floor(Math.random() * particles.length)];
+        particle.style.left = Math.random() * 100 + '%';
+        particle.style.top = Math.random() * 100 + '%';
+        particle.style.animationDelay = Math.random() * 8 + 's';
+        particle.style.fontSize = (Math.random() * 1.5 + 1) + 'em';
+        reviewsSection.appendChild(particle);
+    }
+}
+
+createReviewParticles();
+
+// 3D Tilt Effect for Reviews
+function addTiltEffect() {
+    const reviewItems = document.querySelectorAll('.review-item');
+
+    reviewItems.forEach(item => {
+        item.addEventListener('mousemove', (e) => {
+            const rect = item.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+            const centerX = rect.width / 2;
+            const centerY = rect.height / 2;
+            const rotateX = (y - centerY) / 10;
+            const rotateY = (centerX - x) / 10;
+
+            item.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateZ(20px)`;
+        });
+
+        item.addEventListener('mouseleave', () => {
+            item.style.transform = '';
+        });
+    });
+}
+
+addTiltEffect();
+
+// Parallax Effect for Background Elements
+function addParallaxEffect() {
+    const reviewsSection = document.getElementById('reviews');
+    const floatingElements = reviewsSection.querySelectorAll('.floating-element');
+    const bgEffects = reviewsSection.querySelectorAll('.bg-effect');
+
+    reviewsSection.addEventListener('mousemove', (e) => {
+        const rect = reviewsSection.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        const centerX = rect.width / 2;
+        const centerY = rect.height / 2;
+
+        const moveX = (x - centerX) / centerX;
+        const moveY = (y - centerY) / centerY;
+
+        floatingElements.forEach((element, index) => {
+            const speed = 0.5 + (index * 0.1);
+            element.style.transform = `translate(${moveX * speed}px, ${moveY * speed}px)`;
+        });
+
+        bgEffects.forEach((effect, index) => {
+            const speed = 0.3 + (index * 0.05);
+            effect.style.transform = `translate(${moveX * speed}px, ${moveY * speed}px) scale(1.2)`;
+        });
+    });
+
+    reviewsSection.addEventListener('mouseleave', () => {
+        floatingElements.forEach(element => {
+            element.style.transform = '';
+        });
+        bgEffects.forEach(effect => {
+            effect.style.transform = '';
+        });
+    });
+}
+
+addParallaxEffect();
 
 // Functions
 function showGameSection(gameKey) {
