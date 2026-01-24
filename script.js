@@ -89,7 +89,13 @@ const loadingScreen = document.getElementById('loading-screen');
 
 // Event listeners
 document.querySelectorAll('.game-item').forEach(item => {
-    item.addEventListener('click', () => showGameSection(item.dataset.game));
+    item.addEventListener('click', () => {
+        if (item.dataset.game === 'netflix') {
+            openBuyModal('netflix', 'Monthly Subscription', 'Rs 799');
+        } else {
+            showGameSection(item.dataset.game);
+        }
+    });
 });
 
 backBtn.addEventListener('click', showHomepage);
@@ -149,26 +155,16 @@ document.addEventListener('DOMContentLoaded', () => {
         themeToggle.textContent = 'Dark';
     }
 
-    // QR Code download functionality
-    const downloadQrBtn = document.getElementById('download-qr');
-    if (downloadQrBtn) {
-        downloadQrBtn.addEventListener('click', async () => {
-            const qrImage = document.querySelector('.qr-code');
-            if (qrImage) {
-                try {
-                    const response = await fetch(qrImage.src);
-                    const blob = await response.blob();
-                    const url = URL.createObjectURL(blob);
-                    const link = document.createElement('a');
-                    link.href = url;
-                    link.download = 'qr-code-indirea.webp';
-                    document.body.appendChild(link);
-                    link.click();
-                    document.body.removeChild(link);
-                    URL.revokeObjectURL(url);
-                } catch (error) {
-                    console.error('Failed to download QR code:', error);
-                    alert('Failed to download QR code. Please try again.');
+    // QR Code download functionality using event delegation
+    const modal = document.getElementById('buy-modal');
+    if (modal) {
+        modal.addEventListener('click', (e) => {
+            if (e.target.id === 'download-qr') {
+                const qrImage = document.querySelector('.qr-code');
+                if (qrImage) {
+                    // Open the image in a new tab for manual saving
+                    window.open(qrImage.src, '_blank');
+                    alert('Image opened in new tab. Right-click (desktop) or long press (mobile) to save the image.');
                 }
             }
         });
@@ -682,91 +678,272 @@ function showHomepage() {
 
 function openBuyModal(gameKey, amount, price) {
     const game = games[gameKey];
-    document.getElementById('game-name').value = game.name;
-    document.getElementById('package').value = amount;
-    document.getElementById('price').value = price;
+    document.getElementById('game-name').value = game ? game.name : 'Netflix';
 
-    // Hide UID for Roblox
-    const uidLabel = document.querySelector('label[for="uid"]');
-    const uidInput = document.getElementById('uid');
-    if (gameKey === 'roblox') {
-        uidLabel.style.display = 'none';
-        uidInput.style.display = 'none';
-        uidInput.required = false;
+    // Handle Netflix subscription
+    if (gameKey === 'netflix') {
+        // Hide game-specific fields
+        document.querySelector('label[for="price"]').style.display = 'none';
+        document.getElementById('price').style.display = 'none';
+        document.querySelector('label[for="uid"]').style.display = 'none';
+        document.getElementById('uid').style.display = 'none';
+        document.querySelector('label[for="screenshot"]').style.display = 'none';
+        document.getElementById('screenshot').style.display = 'none';
+
+        // Add package field for Netflix
+        let packageLabel = document.querySelector('label[for="package"]');
+        let packageInput = document.getElementById('package');
+        if (!packageLabel) {
+            packageLabel = document.createElement('label');
+            packageLabel.setAttribute('for', 'package');
+            packageLabel.textContent = 'Package:';
+            packageInput = document.createElement('input');
+            packageInput.type = 'text';
+            packageInput.id = 'package';
+            packageInput.name = 'package';
+            packageInput.readOnly = true;
+            packageInput.style.fontWeight = 'bold';
+            packageInput.style.color = '#00ffff';
+            packageInput.style.backgroundColor = '#f0f0f0';
+
+            const gmailLabel = document.querySelector('label[for="gmail"]');
+            gmailLabel.parentNode.insertBefore(packageLabel, gmailLabel);
+            gmailLabel.parentNode.insertBefore(packageInput, gmailLabel);
+        }
+        packageInput.value = 'Rs 799 for single month';
+        packageLabel.style.display = 'block';
+        packageInput.style.display = 'block';
+
+        // Add name field for Netflix
+        let nameLabel = document.querySelector('label[for="name"]');
+        let nameInput = document.getElementById('name');
+        if (!nameLabel) {
+            nameLabel = document.createElement('label');
+            nameLabel.setAttribute('for', 'name');
+            nameLabel.textContent = 'Name:';
+            nameInput = document.createElement('input');
+            nameInput.type = 'text';
+            nameInput.id = 'name';
+            nameInput.name = 'name';
+            nameInput.required = true;
+            nameInput.placeholder = 'Enter your name';
+
+            const gmailLabel = document.querySelector('label[for="gmail"]');
+            gmailLabel.parentNode.insertBefore(nameLabel, gmailLabel);
+            gmailLabel.parentNode.insertBefore(nameInput, gmailLabel);
+        }
+        nameLabel.style.display = 'block';
+        nameInput.style.display = 'block';
+
+        // Add phone field for Netflix
+        let phoneLabel = document.querySelector('label[for="phone"]');
+        let phoneInput = document.getElementById('phone');
+        if (!phoneLabel) {
+            phoneLabel = document.createElement('label');
+            phoneLabel.setAttribute('for', 'phone');
+            phoneLabel.textContent = 'Phone Number:';
+            phoneInput = document.createElement('input');
+            phoneInput.type = 'tel';
+            phoneInput.id = 'phone';
+            phoneInput.name = 'phone';
+            phoneInput.required = true;
+            phoneInput.placeholder = 'Enter your phone number';
+
+            const gmailLabel = document.querySelector('label[for="gmail"]');
+            gmailLabel.parentNode.insertBefore(phoneLabel, gmailLabel);
+            gmailLabel.parentNode.insertBefore(phoneInput, gmailLabel);
+        }
+        phoneLabel.style.display = 'block';
+        phoneInput.style.display = 'block';
+
+        // Hide QR section for Netflix
+        document.querySelector('.qr-section').style.display = 'none';
+
+        // Change modal title
+        document.querySelector('#buy-modal h3').textContent = 'Get Netflix Subscription';
     } else {
-        uidLabel.style.display = 'block';
-        uidInput.style.display = 'block';
-        uidInput.required = true;
+        // Show game-specific fields
+        document.querySelector('label[for="package"]').style.display = 'block';
+        document.getElementById('package').style.display = 'block';
+        document.querySelector('label[for="price"]').style.display = 'block';
+        document.getElementById('price').style.display = 'block';
+        document.querySelector('label[for="screenshot"]').style.display = 'block';
+        document.getElementById('screenshot').style.display = 'block';
+
+        // Hide name field if exists
+        const nameLabel = document.querySelector('label[for="name"]');
+        const nameInput = document.getElementById('name');
+        if (nameLabel) {
+            nameLabel.style.display = 'none';
+            nameInput.style.display = 'none';
+        }
+
+        // Show QR section
+        document.querySelector('.qr-section').style.display = 'block';
+
+        // Change modal title back
+        document.querySelector('#buy-modal h3').textContent = 'Complete Your Purchase';
+
+        document.getElementById('package').value = amount;
+        document.getElementById('price').value = price;
+
+        // Hide UID for Roblox
+        const uidLabel = document.querySelector('label[for="uid"]');
+        const uidInput = document.getElementById('uid');
+        if (gameKey === 'roblox') {
+            uidLabel.style.display = 'none';
+            uidInput.style.display = 'none';
+            uidInput.required = false;
+        } else {
+            uidLabel.style.display = 'block';
+            uidInput.style.display = 'block';
+            uidInput.required = true;
+        }
     }
 
     modal.classList.remove('hidden');
+    document.body.classList.add('modal-open');
+
+    // Add QR download functionality when modal opens (only for games, not Netflix)
+    if (gameKey !== 'netflix') {
+        const downloadQrBtn = document.getElementById('download-qr');
+        if (downloadQrBtn) {
+            downloadQrBtn.addEventListener('click', () => {
+                const qrImage = document.querySelector('.qr-code');
+                if (qrImage) {
+                    // Open the image in a new tab for manual saving
+                    window.open(qrImage.src, '_blank');
+                    alert('Image opened in new tab. Right-click (desktop) or long press (mobile) to save the image.');
+                }
+            });
+        }
+    }
 }
 
 function closeModal() {
     modal.classList.add('hidden');
     buyForm.reset();
     feedback.textContent = '';
+    document.body.classList.remove('modal-open');
 }
 
 async function handleFormSubmit(e) {
     e.preventDefault();
 
     const formData = new FormData(buyForm);
-    const data = {
-        gameName: formData.get('game-name'),
-        package: formData.get('package'),
-        price: formData.get('price'),
-        uid: formData.get('uid'),
-        gmail: formData.get('gmail'),
-        screenshot: formData.get('screenshot')
-    };
+    const gameName = formData.get('game-name');
 
-    // Basic validation
-    if (!data.gmail || !data.screenshot) {
-        feedback.textContent = 'Please fill in all required fields.';
-        feedback.style.color = 'red';
-        return;
-    }
+    if (gameName === 'Netflix') {
+        // Handle Netflix subscription
+        const data = {
+            name: formData.get('name'),
+            gmail: formData.get('gmail'),
+            phone: formData.get('phone')
+        };
 
-    // Send to Discord webhook for diamond topup
-    const webhookURL = 'https://discord.com/api/webhooks/1461093992807534774/h-yy7Y1WyNdy1IaQe-Ka0LYag9QEheeW0PIqDkZnvByjvAUxTxz_HV1l5K9bcxKtyi1e';
-
-    const embed = {
-        embeds: [{
-            title: 'New Top-Up Order',
-            fields: [
-                { name: 'Game', value: data.gameName, inline: true },
-                { name: 'Package', value: data.package, inline: true },
-                { name: 'Price', value: data.price, inline: true },
-                { name: 'UID', value: data.uid || 'N/A', inline: true },
-                { name: 'Gmail', value: data.gmail, inline: true }
-            ],
-            color: 0x00ff00
-        }]
-    };
-
-    // Prepare FormData for webhook with file attachment
-    const webhookData = new FormData();
-    webhookData.append('payload_json', JSON.stringify(embed));
-    webhookData.append('file', data.screenshot, 'payment_screenshot.png'); // Attach the file
-
-    try {
-        const response = await fetch(webhookURL, {
-            method: 'POST',
-            body: webhookData
-        });
-
-        if (response.ok) {
-            feedback.textContent = 'Order submitted successfully! We will process it shortly.';
-            feedback.style.color = 'green';
-            buyForm.reset();
-            setTimeout(closeModal, 3000);
-        } else {
-            throw new Error('Failed to submit');
+        // Basic validation for Netflix
+        if (!data.name || !data.gmail || !data.phone) {
+            feedback.textContent = 'Please fill in all required fields.';
+            feedback.style.color = 'red';
+            return;
         }
-    } catch (error) {
-        feedback.textContent = 'Failed to submit order. Please try again.';
-        feedback.style.color = 'red';
+
+        // Send to Discord webhook for Netflix subscription
+        const webhookURL = 'https://discord.com/api/webhooks/1463162639835205632/xmQOHPkRchi0PXeoaBF1NSVbXRSoqksFElQ5mJLblaieuvjYySTsEGY-5QL3I-XgnS1W';
+
+        const embed = {
+            embeds: [{
+                title: 'New Netflix Subscription Request',
+                fields: [
+                    { name: 'Name', value: data.name, inline: true },
+                    { name: 'Gmail', value: data.gmail, inline: true },
+                    { name: 'Phone Number', value: data.phone, inline: true },
+                    { name: 'Category', value: 'Netflix', inline: true },
+                    { name: 'Price', value: 'Rs 799 for single month', inline: true }
+                ],
+                color: 0xe50914
+            }]
+        };
+
+        try {
+            const response = await fetch(webhookURL, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(embed)
+            });
+
+            if (response.ok) {
+                feedback.textContent = 'Netflix subscription request submitted successfully! We will contact you soon.';
+                feedback.style.color = 'green';
+                buyForm.reset();
+                setTimeout(closeModal, 3000);
+            } else {
+                throw new Error('Failed to submit');
+            }
+        } catch (error) {
+            feedback.textContent = 'Failed to submit request. Please try again.';
+            feedback.style.color = 'red';
+        }
+    } else {
+        // Handle game top-up
+        const data = {
+            gameName: gameName,
+            package: formData.get('package'),
+            price: formData.get('price'),
+            uid: formData.get('uid'),
+            gmail: formData.get('gmail'),
+            screenshot: formData.get('screenshot')
+        };
+
+        // Basic validation for games
+        if (!data.gmail || !data.screenshot) {
+            feedback.textContent = 'Please fill in all required fields.';
+            feedback.style.color = 'red';
+            return;
+        }
+
+        // Send to Discord webhook for game topup
+        const webhookURL = 'https://discord.com/api/webhooks/1461093992807534774/h-yy7Y1WyNdy1IaQe-Ka0LYag9QEheeW0PIqDkZnvByjvAUxTxz_HV1l5K9bcxKtyi1e';
+
+        const embed = {
+            embeds: [{
+                title: 'New Top-Up Order',
+                fields: [
+                    { name: 'Game', value: data.gameName, inline: true },
+                    { name: 'Package', value: data.package, inline: true },
+                    { name: 'Price', value: data.price, inline: true },
+                    { name: 'UID', value: data.uid || 'N/A', inline: true },
+                    { name: 'Gmail', value: data.gmail, inline: true }
+                ],
+                color: 0x00ff00
+            }]
+        };
+
+        // Prepare FormData for webhook with file attachment
+        const webhookData = new FormData();
+        webhookData.append('payload_json', JSON.stringify(embed));
+        webhookData.append('file', data.screenshot, 'payment_screenshot.png'); // Attach the file
+
+        try {
+            const response = await fetch(webhookURL, {
+                method: 'POST',
+                body: webhookData
+            });
+
+            if (response.ok) {
+                feedback.textContent = 'Order submitted successfully! We will process it shortly.';
+                feedback.style.color = 'green';
+                buyForm.reset();
+                setTimeout(closeModal, 3000);
+            } else {
+                throw new Error('Failed to submit');
+            }
+        } catch (error) {
+            feedback.textContent = 'Failed to submit order. Please try again.';
+            feedback.style.color = 'red';
+        }
     }
 }
 
