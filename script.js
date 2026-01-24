@@ -1,4 +1,4 @@
-// Game data
+ // Game data
 const games = {
     mobilelegends: {
         name: 'Mobile Legends Diamonds',
