@@ -1,3 +1,0 @@
-- [ ] Update index.html to include only 8 unique reviews
-- [ ] Modify style.css to display reviews in a grid layout
-- [ ] Update script.js to remove cycling logic and display reviews statically
