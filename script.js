@@ -3,18 +3,18 @@ const games = {
     mobilelegends: {
         name: 'Mobile Legends Diamonds',
         prices: [
-            { amount: '55💎', price: 'Rs.160' },
-            { amount: '86💎', price: 'Rs.215' },
-            { amount: '172💎', price: 'Rs.400' },
-            { amount: '257💎', price: 'Rs.600' },
-            { amount: '344💎', price: 'Rs.860' },
-            { amount: '429💎', price: 'Rs.1075' },
-            { amount: '514💎', price: 'Rs.1200' },
-            { amount: '706💎', price: 'Rs.1500' },
-            { amount: '878💎', price: 'Rs.2195' },
-            { amount: '963💎', price: 'Rs.2408' },
-            { amount: '1050💎', price: 'Rs.2625' },
-            { amount: '1412💎', price: 'Rs.2950' },
+            { amount: '55', price: 'Rs.160' },
+            { amount: '86', price: 'Rs.215' },
+            { amount: '172', price: 'Rs.400' },
+            { amount: '257', price: 'Rs.600' },
+            { amount: '344', price: 'Rs.860' },
+            { amount: '429', price: 'Rs.1075' },
+            { amount: '514', price: 'Rs.1200' },
+            { amount: '706', price: 'Rs.1500' },
+            { amount: '878', price: 'Rs.2195' },
+            { amount: '963', price: 'Rs.2408' },
+            { amount: '1050', price: 'Rs.2625' },
+            { amount: '1412', price: 'Rs.2950' },
             { amount: 'Weekly Pass', price: 'Rs.215' },
             { amount: 'Monthly Pass', price: 'Rs.645' }
         ]
@@ -22,37 +22,37 @@ const games = {
     roblox: {
         name: 'Roblox Robux',
         prices: [
-            { amount: '300⟐', price: 'Rs.700' },
-            { amount: '400⟐', price: 'Rs.1000' },
-            { amount: '500⟐', price: 'Rs.1250' },
-            { amount: '800⟐', price: 'Rs.2000' },
-            { amount: '1000⟐', price: 'Rs.2500' },
-            { amount: '1500⟐', price: 'Rs.3750' },
-            { amount: '2000⟐', price: 'Rs.5000' },
-            { amount: '3000⟐', price: 'Rs.5500' }
+            { amount: '300', price: 'Rs.700' },
+            { amount: '400', price: 'Rs.1000' },
+            { amount: '500', price: 'Rs.1250' },
+            { amount: '800', price: 'Rs.2000' },
+            { amount: '1000', price: 'Rs.2500' },
+            { amount: '1500', price: 'Rs.3750' },
+            { amount: '2000', price: 'Rs.5000' },
+            { amount: '3000', price: 'Rs.5500' }
         ]
     },
     freefire: {
         name: 'Free Fire Diamonds',
         prices: [
-            { amount: '50💎', price: 'Rs.65' },
-            { amount: '115💎', price: 'Rs.105' },
-            { amount: '240💎', price: 'Rs.200' },
-            { amount: '355💎', price: 'Rs.300' },
-            { amount: '480💎', price: 'Rs.400' },
-            { amount: '610💎', price: 'Rs.500' },
-            { amount: '725💎', price: 'Rs.610' },
-            { amount: '850💎', price: 'Rs.720' },
-            { amount: '965💎', price: 'Rs.830' },
-            { amount: '1090💎', price: 'Rs.910' },
-            { amount: '1240💎', price: 'Rs.1000' },
-            { amount: '1480💎', price: 'Rs.1220' },
-            { amount: '1720💎', price: 'Rs.1420' },
-            { amount: '1850💎', price: 'Rs.1500' },
-            { amount: '2090💎', price: 'Rs.1710' },
-            { amount: '2530💎', price: 'Rs.2000' },
-            { amount: '5060💎', price: 'Rs.4000' },
-            { amount: '10120💎', price: 'Rs.8000' },
+            { amount: '50', price: 'Rs.65' },
+            { amount: '115', price: 'Rs.105' },
+            { amount: '240', price: 'Rs.200' },
+            { amount: '355', price: 'Rs.300' },
+            { amount: '480', price: 'Rs.400' },
+            { amount: '610', price: 'Rs.500' },
+            { amount: '725', price: 'Rs.610' },
+            { amount: '850', price: 'Rs.720' },
+            { amount: '965', price: 'Rs.830' },
+            { amount: '1090', price: 'Rs.910' },
+            { amount: '1240', price: 'Rs.1000' },
+            { amount: '1480', price: 'Rs.1220' },
+            { amount: '1720', price: 'Rs.1420' },
+            { amount: '1850', price: 'Rs.1500' },
+            { amount: '2090', price: 'Rs.1710' },
+            { amount: '2530', price: 'Rs.2000' },
+            { amount: '5060', price: 'Rs.4000' },
+            { amount: '10120', price: 'Rs.8000' },
             { amount: 'Monthly', price: 'Rs.995' },
             { amount: 'Elite Weekly', price: 'Rs.75' }
         ]
@@ -104,67 +104,18 @@ buyForm.addEventListener('submit', handleFormSubmit);
 
 supportForm.addEventListener('submit', handleSupportFormSubmit);
 
-        loadingScreen.style.opacity = '0';
-        setTimeout(() => {
-            loadingScreen.style.display = 'none';
-        }, 500);
-    }, 100); // Show loading for 0.1 seconds
->>>>>>> b718fa38f0d386c69f5b26020f5406bc5496ab10
-
-    // Theme toggle functionality
-    const themeToggle = document.getElementById('theme-toggle');
-    const body = document.body;
-
-    // Set default theme to light
-    body.classList.add('light-theme');
- 
 // Loading screen fade out
 document.addEventListener('DOMContentLoaded', () => {
     setTimeout(() => {
-        loadingScreen.style.display = 'none';
-    }, 2000); // Show loading for 2 seconds
-
-    // Theme toggle functionality
-    const themeToggle = document.getElementById('theme-toggle');
-    const body = document.body;
-
-    // Set default theme to light
-    body.classList.add('light-theme');
-
-    if (themeToggle) {
-        themeToggle.addEventListener('click', () => {
-            if (body.classList.contains('light-theme')) {
-                body.classList.remove('light-theme');
-                body.classList.add('dark-theme');
-                themeToggle.textContent = '☀️ Light';
-                localStorage.setItem('theme', 'dark');
-            } else {
-                body.classList.remove('dark-theme');
-                body.classList.add('light-theme');
-                themeToggle.textContent = '🌙 Dark';
-                localStorage.setItem('theme', 'light');
-            }
-        });
-
-        // Load saved theme
-        const savedTheme = localStorage.getItem('theme');
-        if (savedTheme === 'dark') {
-            body.classList.remove('light-theme');
-            body.classList.add('dark-theme');
-            themeToggle.textContent = '☀️ Light';
-        } else {
-            body.classList.add('light-theme');
-            themeToggle.textContent = '🌙 Dark';
-        }
-    }
-});
-=======
         loadingScreen.style.opacity = '0';
         setTimeout(() => {
             loadingScreen.style.display = 'none';
         }, 500);
     }, 100); // Show loading for 0.1 seconds
->>>>>>> b718fa38f0d386c69f5b26020f5406bc5496ab10
+
+    // Remove any existing review particles
+    const existingParticles = document.querySelectorAll('.review-particle');
+    existingParticles.forEach(particle => particle.remove());
 
     // Theme toggle functionality
     const themeToggle = document.getElementById('theme-toggle');
@@ -173,43 +124,16 @@ document.addEventListener('DOMContentLoaded', () => {
     // Set default theme to light
     body.classList.add('light-theme');
 
-<<<<<<< HEAD
-    if (themeToggle) {
-        themeToggle.addEventListener('click', () => {
-            if (body.classList.contains('light-theme')) {
-                body.classList.remove('light-theme');
-                body.classList.add('dark-theme');
-                themeToggle.textContent = '☀️ Light';
-                localStorage.setItem('theme', 'dark');
-            } else {
-                body.classList.remove('dark-theme');
-                body.classList.add('light-theme');
-                themeToggle.textContent = '🌙 Dark';
-                localStorage.setItem('theme', 'light');
-            }
-        });
-
-        // Load saved theme
-        const savedTheme = localStorage.getItem('theme');
-        if (savedTheme === 'dark') {
-            body.classList.remove('light-theme');
-            body.classList.add('dark-theme');
-            themeToggle.textContent = '☀️ Light';
-        } else {
-            body.classList.add('light-theme');
-            themeToggle.textContent = '🌙 Dark';
-        }
-=======
     themeToggle.addEventListener('click', () => {
         if (body.classList.contains('light-theme')) {
             body.classList.remove('light-theme');
             body.classList.add('dark-theme');
-            themeToggle.textContent = '☀️ Light';
+            themeToggle.textContent = 'Light';
             localStorage.setItem('theme', 'dark');
         } else {
             body.classList.remove('dark-theme');
             body.classList.add('light-theme');
-            themeToggle.textContent = '🌙 Dark';
+            themeToggle.textContent = 'Dark';
             localStorage.setItem('theme', 'light');
         }
     });
@@ -219,11 +143,35 @@ document.addEventListener('DOMContentLoaded', () => {
     if (savedTheme === 'dark') {
         body.classList.remove('light-theme');
         body.classList.add('dark-theme');
-        themeToggle.textContent = '☀️ Light';
+        themeToggle.textContent = 'Light';
     } else {
         body.classList.add('light-theme');
-        themeToggle.textContent = '🌙 Dark';
->>>>>>> b718fa38f0d386c69f5b26020f5406bc5496ab10
+        themeToggle.textContent = 'Dark';
+    }
+
+    // QR Code download functionality
+    const downloadQrBtn = document.getElementById('download-qr');
+    if (downloadQrBtn) {
+        downloadQrBtn.addEventListener('click', async () => {
+            const qrImage = document.querySelector('.qr-code');
+            if (qrImage) {
+                try {
+                    const response = await fetch(qrImage.src);
+                    const blob = await response.blob();
+                    const url = URL.createObjectURL(blob);
+                    const link = document.createElement('a');
+                    link.href = url;
+                    link.download = 'qr-code-indirea.webp';
+                    document.body.appendChild(link);
+                    link.click();
+                    document.body.removeChild(link);
+                    URL.revokeObjectURL(url);
+                } catch (error) {
+                    console.error('Failed to download QR code:', error);
+                    alert('Failed to download QR code. Please try again.');
+                }
+            }
+        });
     }
 });
 
@@ -555,14 +503,12 @@ const reviewers = [
     "Suraj Acharya"
 ];
 
-// Generate only 10 reviews for smaller size
+// Generate all 100 reviews
 reviewsContainer.innerHTML = '';
-for (let i = 0; i < 10; i++) {
+for (let i = 0; i < 100; i++) {
     const reviewItem = document.createElement('div');
     reviewItem.className = 'review-item';
-    const stars = '★★★★★'.split('').map(star => `<span class="star">${star}</span>`).join('');
     reviewItem.innerHTML = `
-        <div class="review-stars">${stars}</div>
         <p>${reviewTexts[i]}</p>
         <span class="reviewer">- ${reviewers[i]}</span>
     `;
@@ -585,30 +531,13 @@ function showNextReview() {
             }, 500); // Match transition duration
         }
     });
-    currentReviewIndex = (currentReviewIndex + 1) % 10;
+    currentReviewIndex = (currentReviewIndex + 1) % 100;
 }
 
 showNextReview(); // Show first review
 setInterval(showNextReview, 1500); // Change review every 1.5 seconds for faster, more attractive cycling
 
-// Advanced Particle Effects for Reviews - Removed to reduce visual clutter
-// function createReviewParticles() {
-//     const reviewsSection = document.getElementById('reviews');
-//     const particles = ['✨', '💖', '⭐', '🌟', '💕', '🎉', '🌈', '💫'];
 
-//     for (let i = 0; i < 20; i++) {
-//         const particle = document.createElement('div');
-//         particle.className = 'review-particle';
-//         particle.textContent = particles[Math.floor(Math.random() * particles.length)];
-//         particle.style.left = Math.random() * 100 + '%';
-//         particle.style.top = Math.random() * 100 + '%';
-//         particle.style.animationDelay = Math.random() * 8 + 's';
-//         particle.style.fontSize = (Math.random() * 1.5 + 1) + 'em';
-//         reviewsSection.appendChild(particle);
-//     }
-// }
-
-// createReviewParticles();
 
 // 3D Tilt Effect for Reviews
 function addTiltEffect() {
@@ -694,6 +623,48 @@ function showGameSection(gameKey) {
 
     document.querySelectorAll('.buy-btn').forEach(btn => {
         btn.addEventListener('click', (e) => openBuyModal(gameKey, e.target.dataset.amount, e.target.dataset.price));
+    });
+
+    homepage.classList.add('hidden');
+    reviewsContainer.closest('#reviews').classList.add('hidden');
+    document.getElementById('support-care').classList.add('hidden');
+    document.querySelector('footer').classList.add('hidden');
+    gameSection.classList.remove('hidden');
+}
+
+function showDiamondList() {
+    gameTitle.textContent = 'Diamond Packages';
+    priceList.innerHTML = '';
+
+    // Collect all diamond-related prices from all games
+    const diamondPrices = [];
+    Object.keys(games).forEach(gameKey => {
+        const game = games[gameKey];
+        game.prices.forEach(price => {
+            if (price.amount.includes('Diamond') || price.amount.includes('💎') || gameKey === 'mobilelegends' || gameKey === 'freefire') {
+                diamondPrices.push({
+                    ...price,
+                    gameName: game.name,
+                    gameKey: gameKey
+                });
+            }
+        });
+    });
+
+    diamondPrices.forEach(price => {
+        const priceItem = document.createElement('div');
+        priceItem.className = 'price-item';
+        priceItem.innerHTML = `
+            <div class="details">
+                <strong>${price.gameName} - ${price.amount}</strong> - ${price.price}
+            </div>
+            <button class="buy-btn" data-game="${price.gameKey}" data-amount="${price.amount}" data-price="${price.price}">Buy</button>
+        `;
+        priceList.appendChild(priceItem);
+    });
+
+    document.querySelectorAll('.buy-btn').forEach(btn => {
+        btn.addEventListener('click', (e) => openBuyModal(e.target.dataset.game, e.target.dataset.amount, e.target.dataset.price));
     });
 
     homepage.classList.add('hidden');
@@ -823,11 +794,11 @@ async function handleSupportFormSubmit(e) {
 
     const embed = {
         embeds: [{
-            title: 'New Support Message 💖',
+            title: 'New Support Message',
             fields: [
-                { name: 'Phone Number 📱', value: data.phone, inline: true },
-                { name: 'Gmail 📧', value: data.gmail, inline: true },
-                { name: 'Message 💌', value: data.message, inline: false }
+                { name: 'Phone Number', value: data.phone, inline: true },
+                { name: 'Gmail', value: data.gmail, inline: true },
+                { name: 'Message', value: data.message, inline: false }
             ],
             color: 0xff69b4
         }]
@@ -845,7 +816,7 @@ async function handleSupportFormSubmit(e) {
         console.log('Response status:', response.status);
 
         if (response.ok) {
-            supportFeedback.textContent = 'Message sent successfully! We\'ll get back to you soon. 🌸';
+            supportFeedback.textContent = 'Message sent successfully! We\'ll get back to you soon.';
             supportFeedback.style.color = 'green';
             supportForm.reset();
         } else {
@@ -859,8 +830,4 @@ async function handleSupportFormSubmit(e) {
 }
 
  
-<<<<<<< HEAD
- 
-=======
   
->>>>>>> b718fa38f0d386c69f5b26020f5406bc5496ab10
