@@ -844,13 +844,13 @@ function closeModal() {
 async function handleFormSubmit(e) {
     e.preventDefault();
     console.log('handleFormSubmit called');
-    alert('Form is being submitted Now after a minutes you will get id and password of netflix account via email THANK YOU😍👍 .');
 
     const formData = new FormData(buyForm);
     const gameName = formData.get('game-name');
     console.log('Game name:', gameName);
 
     if (gameName === 'Netflix') {
+        alert('Form is being submitted Now after a minutes you will get id and password of netflix account via email THANK YOU😍👍 .');
         console.log('Processing Netflix form');
         // Handle Netflix subscription
         const data = {
