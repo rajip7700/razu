@@ -87,45 +87,44 @@ const supportForm = document.getElementById('support-form');
 const supportFeedback = document.getElementById('support-feedback');
 const loadingScreen = document.getElementById('loading-screen');
 
+// Event listeners
+document.querySelectorAll('.game-item').forEach(item => {
+    item.addEventListener('click', () => {
+        if (item.dataset.game === 'netflix') {
+            openBuyModal('netflix', 'Monthly Subscription', 'Rs 799');
+        } else {
+            showGameSection(item.dataset.game);
+        }
+    });
+});
 
+backBtn.addEventListener('click', showHomepage);
+
+closeBtn.addEventListener('click', closeModal);
+
+window.addEventListener('click', (e) => {
+    if (e.target === modal) closeModal();
+});
+
+buyForm.addEventListener('submit', handleFormSubmit);
+
+supportForm.addEventListener('submit', handleSupportFormSubmit);
 
 // Loading screen fade out
 document.addEventListener('DOMContentLoaded', () => {
+    // Scroll to top on page load/refresh
+    window.scrollTo(0, 0);
+
     setTimeout(() => {
         loadingScreen.style.opacity = '0';
         setTimeout(() => {
             loadingScreen.style.display = 'none';
         }, 500);
-    }, 100); // Show loading for 0.1 seconds
+    }, 2000); // Show loading for 2 seconds
 
     // Remove any existing review particles
     const existingParticles = document.querySelectorAll('.review-particle');
     existingParticles.forEach(particle => particle.remove());
-
-    // Event listeners
-    document.querySelectorAll('.game-item').forEach(item => {
-        item.addEventListener('click', () => {
-            console.log('Game item clicked:', item.dataset.game);
-            if (item.dataset.game === 'netflix') {
-                console.log('Opening Netflix modal');
-                openBuyModal('netflix', 'Monthly Subscription', 'Rs 799');
-            } else {
-                showGameSection(item.dataset.game);
-            }
-        });
-    });
-
-    backBtn.addEventListener('click', showHomepage);
-
-    closeBtn.addEventListener('click', closeModal);
-
-    window.addEventListener('click', (e) => {
-        if (e.target === modal) closeModal();
-    });
-
-    buyForm.addEventListener('submit', handleFormSubmit);
-
-    supportForm.addEventListener('submit', handleSupportFormSubmit);
 
     // Theme toggle functionality
     const themeToggle = document.getElementById('theme-toggle');
@@ -398,7 +397,6 @@ const reviewTexts = [
     "Diamonds under 30 seconds!",
     "Best gaming top-up. Secure!"
 ];
-
 
 // Array of reviewers
 const reviewers = [
@@ -685,12 +683,13 @@ function showHomepage() {
 }
 
 function openBuyModal(gameKey, amount, price) {
-    console.log('Opening modal for', gameKey);
     const game = games[gameKey];
     document.getElementById('game-name').value = game ? game.name : 'Netflix';
 
     // Handle Netflix subscription
     if (gameKey === 'netflix') {
+        // Change label to Type:
+        document.querySelector('label[for="game-name"]').textContent = 'Type:';
         // Hide game-specific fields
         document.querySelector('label[for="price"]').style.display = 'none';
         document.getElementById('price').style.display = 'none';
@@ -816,7 +815,7 @@ function openBuyModal(gameKey, amount, price) {
         }
     }
 
-    modal.style.display = 'flex';
+    modal.classList.remove('hidden');
     document.body.classList.add('modal-open');
 
     // Add QR download functionality when modal opens (only for games, not Netflix)
@@ -836,7 +835,7 @@ function openBuyModal(gameKey, amount, price) {
 }
 
 function closeModal() {
-    modal.style.display = 'none';
+    modal.classList.add('hidden');
     buyForm.reset();
     feedback.textContent = '';
     document.body.classList.remove('modal-open');
