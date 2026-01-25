@@ -87,28 +87,7 @@ const supportForm = document.getElementById('support-form');
 const supportFeedback = document.getElementById('support-feedback');
 const loadingScreen = document.getElementById('loading-screen');
 
-// Event listeners
-document.querySelectorAll('.game-item').forEach(item => {
-    item.addEventListener('click', () => {
-        if (item.dataset.game === 'netflix') {
-            openBuyModal('netflix', 'Monthly Subscription', 'Rs 799');
-        } else {
-            showGameSection(item.dataset.game);
-        }
-    });
-});
 
-backBtn.addEventListener('click', showHomepage);
-
-closeBtn.addEventListener('click', closeModal);
-
-window.addEventListener('click', (e) => {
-    if (e.target === modal) closeModal();
-});
-
-buyForm.addEventListener('submit', handleFormSubmit);
-
-supportForm.addEventListener('submit', handleSupportFormSubmit);
 
 // Loading screen fade out
 document.addEventListener('DOMContentLoaded', () => {
@@ -122,6 +101,31 @@ document.addEventListener('DOMContentLoaded', () => {
     // Remove any existing review particles
     const existingParticles = document.querySelectorAll('.review-particle');
     existingParticles.forEach(particle => particle.remove());
+
+    // Event listeners
+    document.querySelectorAll('.game-item').forEach(item => {
+        item.addEventListener('click', () => {
+            console.log('Game item clicked:', item.dataset.game);
+            if (item.dataset.game === 'netflix') {
+                console.log('Opening Netflix modal');
+                openBuyModal('netflix', 'Monthly Subscription', 'Rs 799');
+            } else {
+                showGameSection(item.dataset.game);
+            }
+        });
+    });
+
+    backBtn.addEventListener('click', showHomepage);
+
+    closeBtn.addEventListener('click', closeModal);
+
+    window.addEventListener('click', (e) => {
+        if (e.target === modal) closeModal();
+    });
+
+    buyForm.addEventListener('submit', handleFormSubmit);
+
+    supportForm.addEventListener('submit', handleSupportFormSubmit);
 
     // Theme toggle functionality
     const themeToggle = document.getElementById('theme-toggle');
@@ -394,6 +398,7 @@ const reviewTexts = [
     "Diamonds under 30 seconds!",
     "Best gaming top-up. Secure!"
 ];
+
 
 // Array of reviewers
 const reviewers = [
@@ -680,6 +685,7 @@ function showHomepage() {
 }
 
 function openBuyModal(gameKey, amount, price) {
+    console.log('Opening modal for', gameKey);
     const game = games[gameKey];
     document.getElementById('game-name').value = game ? game.name : 'Netflix';
 
@@ -810,7 +816,7 @@ function openBuyModal(gameKey, amount, price) {
         }
     }
 
-    modal.classList.remove('hidden');
+    modal.style.display = 'flex';
     document.body.classList.add('modal-open');
 
     // Add QR download functionality when modal opens (only for games, not Netflix)
@@ -830,7 +836,7 @@ function openBuyModal(gameKey, amount, price) {
 }
 
 function closeModal() {
-    modal.classList.add('hidden');
+    modal.style.display = 'none';
     buyForm.reset();
     feedback.textContent = '';
     document.body.classList.remove('modal-open');
