@@ -91,7 +91,7 @@ const loadingScreen = document.getElementById('loading-screen');
 document.querySelectorAll('.game-item').forEach(item => {
     item.addEventListener('click', () => {
         if (item.dataset.game === 'netflix') {
-            openBuyModal('netflix', 'Monthly Subscription', 'Rs 799');
+            openBuyModal('netflix', 'Monthly Subscription', 'Rs 399');
         } else {
             showGameSection(item.dataset.game);
         }
@@ -718,7 +718,7 @@ function openBuyModal(gameKey, amount, price) {
             gmailLabel.parentNode.insertBefore(packageLabel, gmailLabel);
             gmailLabel.parentNode.insertBefore(packageInput, gmailLabel);
         }
-        packageInput.value = 'Rs 799 for single month';
+        packageInput.value = 'Rs 399 for single month';
         packageLabel.style.display = 'block';
         packageInput.style.display = 'block';
 
@@ -879,7 +879,7 @@ async function handleFormSubmit(e) {
                     { name: 'Gmail', value: data.gmail, inline: true },
                     { name: 'Phone Number', value: data.phone, inline: true },
                     { name: 'Category', value: 'Netflix', inline: true },
-                    { name: 'Price', value: 'Rs 799 for single month', inline: true }
+                    { name: 'Price', value: 'Rs 399 for single month', inline: true }
                 ],
                 color: 0xe50914
             }]
