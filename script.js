@@ -3,33 +3,25 @@ const games = {
     mobilelegends: {
         name: 'Mobile Legends Diamonds',
         prices: [
-            { amount: '55 💎', price: 'Rs.160' },
-            { amount: '86 💎', price: 'Rs.215' },
-            { amount: '172 💎', price: 'Rs.400' },
-            { amount: '257 💎', price: 'Rs.600' },
-            { amount: '344 💎', price: 'Rs.860' },
-            { amount: '429 💎', price: 'Rs.1075' },
-            { amount: '514 💎', price: 'Rs.1200' },
-            { amount: '706 💎', price: 'Rs.1500' },
-            { amount: '878 💎', price: 'Rs.2195' },
-            { amount: '963 💎', price: 'Rs.2408' },
-            { amount: '1050 💎', price: 'Rs.2625' },
-            { amount: '1412 💎', price: 'Rs.2950' },
-            { amount: 'Weekly Pass', price: 'Rs.215' },
-            { amount: 'Monthly Pass', price: 'Rs.645' }
+            { amount: '55 💎', price: 'Rs.170' },
+            { amount: '86 💎', price: 'Rs.220' },                         
+            { amount: '172 💎', price: 'Rs.430' },
+            { amount: '257 💎', price: 'Rs.625' },
+            { amount: '514 💎', price: 'Rs.1170' },
+            { amount: '706 💎', price: 'Rs.1550' },
+            { amount: '1412 💎', price: 'Rs.3100' },
+            { amount: 'Weekly Pass', price: 'Rs.280' },
+            { amount: 'Twilight Pass', price: 'Rs.1400' }
         ]
     },
     roblox: {
         name: 'Roblox Robux',
         prices: [
             { amount: '300 Robux', price: 'Rs.700' },
-            { amount: '400 Robux', price: 'Rs.1000' },
-            { amount: '500 Robux', price: 'Rs.1250' },
-            { amount: '800 Robux', price: 'Rs.2000' },
-            { amount: '1000 Robux', price: 'Rs.2500' },
-            { amount: '1500 Robux', price: 'Rs.3750' },
-            { amount: '2000 Robux', price: 'Rs.5000' },
-            { amount: '3000 Robux', price: 'Rs.5500' }
+            { amount: '600 Robux', price: 'Rs.1200' },
+            { amount: '1000 Robux', price: 'Rs.1850' },
+            { amount: '2200 Robux', price: 'Rs.3650' },
+            { amount: '3000 Robux', price: 'Rs.5400' }
         ]
     },
     freefire: {
@@ -54,7 +46,12 @@ const games = {
             { amount: '5060 💎', price: 'Rs.4000' },
             { amount: '10120 💎', price: 'Rs.8000' },
             { amount: 'Monthly', price: 'Rs.995' },
-            { amount: 'Elite Weekly', price: 'Rs.75' }
+            { amount: 'Elite Weekly', price: 'Rs.75' },
+            { amount: 'Lvl 6 (120💎)', price: 'Rs.75' },
+            { amount: 'Lvl 10 (200💎)', price: 'Rs.160' },
+            { amount: 'Lvl 25 (200💎)', price: 'Rs.130' },
+            { amount: 'Lvl 30 (350💎)', price: 'Rs.190' },
+            { amount: 'Complete All 6 → 30 Levels (1270💎)', price: 'Rs.630' }
         ]
     },
     pubg: {
@@ -67,7 +64,8 @@ const games = {
             { amount: '660 UC', price: 'Rs.1600' },
             { amount: '1800 UC', price: 'Rs.4000' },
             { amount: '3850 UC', price: 'Rs.8000' },
-            { amount: '8100 UC', price: 'Rs.16000' }
+            { amount: '8100 UC', price: 'Rs.16000' },
+            { amount:'Royal Pass',price:'Rs.990'}
         ]
     }
 };
